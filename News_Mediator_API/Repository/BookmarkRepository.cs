@@ -22,7 +22,7 @@ namespace News_Mediator_API.Repository
             _identityService = identityService;
         }
 
-        public PaginationDTO<News> Get(int page)
+        public PaginationDTO<News> Get(int page, float pageSize)
         {
             int userId = _identityService.GetUserId().Value;
             //var result = _context.Bookmarks.Include(e => e.UserBookmarkNewsNo).Include
@@ -35,7 +35,7 @@ namespace News_Mediator_API.Repository
             .Where(n => bookmarkedIds.Contains(n.Id))
             .ToList();
 
-            var result = _paginationResult.GetPagination(page, newsArticles.AsQueryable());
+            var result = _paginationResult.GetPagination(page, pageSize, newsArticles.AsQueryable());
 
             if (result is null)
             {
@@ -103,7 +103,7 @@ namespace News_Mediator_API.Repository
             return (newsArticles);
         }
 
-        public PaginationDTO<News> GetFilterAndSorting(int page, string columnName, string find, string sortOrder)
+        public PaginationDTO<News> GetFilterAndSorting(FilterData data)
         {
             int userId = _identityService.GetUserId().Value;
 
@@ -116,9 +116,9 @@ namespace News_Mediator_API.Repository
             .Where(n => bookmarkedIds.Contains(n.Id))
             .ToList();
 
-            var filter = _filtering.GetFiltering<News>(columnName, find, newsArticles.AsQueryable());
-            var sort = _sorting.GetSorting(sortOrder, columnName, filter.AsQueryable());
-            var result = _paginationResult.GetPagination(page, filter.AsQueryable());
+            var filter = _filtering.Filter<News>(data.columnName, data.find, newsArticles.AsQueryable());
+            var sort = _sorting.Sort(data.sortOrder, data.columnName, filter.AsQueryable());
+            var result = _paginationResult.GetPagination(data.page,data.pageSize, filter.AsQueryable());
             _context.SaveChanges();
             return result;
         }

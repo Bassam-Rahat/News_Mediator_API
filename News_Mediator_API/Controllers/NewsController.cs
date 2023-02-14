@@ -23,25 +23,25 @@ namespace News_Mediator_API.Controllers
         }
 
         [AllowAnonymous]
-        [HttpGet("GetPaginatedNews")]
-        public async Task<ActionResult<PaginationDTO<News>>> Get(int page)
+        [HttpGet("Paginated")]
+        public async Task<ActionResult<PaginationDTO<News>>> Get(int page, float pageSize)
         {
-            var result = await _mediator.Send(new GetPaginationQuery(page));
+            var result = await _mediator.Send(new GetPaginationQuery(page, pageSize));
             return Ok(result);
 
         }
 
         [AllowAnonymous]
-        [HttpGet("GetFiltering&Sorting")]
-        public async Task<ActionResult<PaginationDTO<News>>> GetFilterAndSorting(int page, string columnName, string find, string sortOrder)
+        [HttpGet("Filter")]
+        public async Task<ActionResult<PaginationDTO<News>>> GetFilterAndSorting([FromQuery] FilterData data)
         {
-            var result = await _mediator.Send(new GetFilteringSortingQuery(page, columnName, find, sortOrder));
+            var result = await _mediator.Send(new GetNewsFilteringSortingQuery(data));
             return Ok(result);
 
         }
 
         [AllowAnonymous]
-        [HttpGet("GetAllNews")]
+        [HttpGet]
         public async Task<ActionResult<List<News>>> GetAll()
         {
             var result = await _mediator.Send(new GetAllQuery());
@@ -55,7 +55,7 @@ namespace News_Mediator_API.Controllers
         }
 
         [Authorize(Role.Admin, Role.User)]
-        [HttpGet("GetById")]
+        [HttpGet("{id}")]
         public async Task<ActionResult<News>> GetById(int id)
         {
             var result = await _mediator.Send(new GetByIdQuery(id));
@@ -68,7 +68,7 @@ namespace News_Mediator_API.Controllers
         }
 
         [Authorize(Role.Admin)]
-        [HttpPost("PostNews")]
+        [HttpPost]
         public async Task<ActionResult<string>> Add(News news)
         {
             var result = await _mediator.Send(new AddCommand(news));
@@ -76,7 +76,7 @@ namespace News_Mediator_API.Controllers
         }
 
         [Authorize(Role.Admin)]
-        [HttpPut("UpdateNews")]
+        [HttpPut]
         public async Task<ActionResult<News>> Update(int id, News updateRequest)
         {
             var result = await _mediator.Send(new UpdateCommand(id, updateRequest));
@@ -89,7 +89,7 @@ namespace News_Mediator_API.Controllers
         }
 
         [Authorize(Role.Admin)]
-        [HttpDelete("DeleteNews")]
+        [HttpDelete]
         public async Task<ActionResult<string>> Delete(int id)
         {
             var result = await _mediator.Send(new DeleteCommand(id));

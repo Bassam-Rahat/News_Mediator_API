@@ -14,17 +14,17 @@ namespace News_Mediator_API.Controllers
     [Authorize]
     [ApiController]
     [Route("[controller]")]
-    public class BookmarkController : ControllerBase
+    public class BookmarkNewsController : ControllerBase
     {
         private readonly IMediator _mediator;
 
-        public BookmarkController(IMediator mediator)
+        public BookmarkNewsController(IMediator mediator)
         {
             _mediator = mediator;
         }
 
         [Authorize(Role.User)]
-        [HttpPost("SaveBookmarkNews")]
+        [HttpPost]
         public async Task<ActionResult<string>> Save(int id)
         {
             var result = await _mediator.Send(new SaveCommand(id));
@@ -37,10 +37,10 @@ namespace News_Mediator_API.Controllers
         }
 
         [Authorize(Role.User)]
-        [HttpGet("SeeAllPaginatedBookmarks")]
-        public async Task<ActionResult<PaginationDTO<News>>> Get(int page)
+        [HttpGet("Paginated")]
+        public async Task<ActionResult<PaginationDTO<News>>> Get(int page, float pageSize)
         {
-            var result = await _mediator.Send(new GetBookmarkPaginationQuery(page));
+            var result = await _mediator.Send(new GetBookmarkPaginationQuery(page, pageSize));
 
             if (result is null)
             {
@@ -50,16 +50,16 @@ namespace News_Mediator_API.Controllers
         }
 
         [Authorize(Role.User)]
-        [HttpGet("GetFiltering&Sorting")]
-        public async Task<ActionResult<PaginationDTO<News>>> GetFilterAndSorting(int page, string columnName, string find, string sortOrder)
+        [HttpGet("Filter")]
+        public async Task<ActionResult<PaginationDTO<News>>> GetFilterAndSorting([FromQuery] FilterData data)
         {
-            var result = await _mediator.Send(new GetBMFilteringSortingQuery(page, columnName, find, sortOrder));
+            var result = await _mediator.Send(new GetBMFilteringSortingQuery(data));
             return Ok(result);
 
         }
 
         [Authorize(Role.User)]
-        [HttpGet("SeeAllBookmarks")]
+        [HttpGet]
         public async Task<ActionResult<List<News>>> GetAll()
         {
             var result = await _mediator.Send(new GetQuery());
@@ -72,7 +72,7 @@ namespace News_Mediator_API.Controllers
         }
 
         [Authorize(Role.User)]
-        [HttpDelete("DeleteBookmarks")]
+        [HttpDelete]
         public async Task<ActionResult<string>> Delete(int id)
         {
             var result = await _mediator.Send(new DeleteCommand(id));

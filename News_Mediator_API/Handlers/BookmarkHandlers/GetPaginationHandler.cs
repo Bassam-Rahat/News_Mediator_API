@@ -18,7 +18,7 @@ namespace News_Mediator_API.Handlers.BookmarkHandlers
 
         public Task<PaginationDTO<News>> Handle(GetBookmarkPaginationQuery request, CancellationToken cancellationToken)
         {
-            return Task.FromResult(bookmarkRepository.Get(request.page));
+            return Task.FromResult(bookmarkRepository.Get(request.page, request.pageSize));
         }
     }
 }

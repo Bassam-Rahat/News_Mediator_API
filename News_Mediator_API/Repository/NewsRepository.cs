@@ -42,10 +42,10 @@ namespace News_Mediator_API.Repository
             return "News Deleted Successfully";
         }
 
-        public PaginationDTO<News> Get(int page)
+        public PaginationDTO<News> Get(int page, float pageSize)
         {
             var query = _context.News.AsQueryable();
-            var result = _paginationResult.GetPagination(page, query);
+            var result = _paginationResult.GetPagination(page,pageSize, query);
             _context.SaveChanges();
             return result;
         }
@@ -85,12 +85,12 @@ namespace News_Mediator_API.Repository
             return _context.News.ToList();
         }
 
-        public PaginationDTO<News> GetFilterAndSorting(int page, string columnName, string find, string sortOrder)
+        public PaginationDTO<News> GetFilterAndSorting(FilterData data)
         {
             var query = _context.News.AsQueryable();
-            var filter = _filtering.GetFiltering<News>(columnName, find, query);
-            var sort = _sorting.GetSorting(sortOrder, columnName, filter.AsQueryable());
-            var result = _paginationResult.GetPagination(page, sort.AsQueryable());
+            var filter = _filtering.Filter<News>(data.columnName, data.find, query);
+            var sort = _sorting.Sort(data.sortOrder, data.columnName, filter.AsQueryable());
+            var result = _paginationResult.GetPagination(data.page,data.pageSize, sort.AsQueryable());
             _context.SaveChanges();
             return result;
         }

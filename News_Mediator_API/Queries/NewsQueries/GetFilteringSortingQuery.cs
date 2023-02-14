@@ -4,5 +4,5 @@ using News_Mediator_API.Pagination;
 
 namespace News_Mediator_API.Queries.NewsQueries
 {
-    public record class GetFilteringSortingQuery(int page, string columnName, string find, string sortOrder) : IRequest<PaginationDTO<News>>;
+    public record class GetNewsFilteringSortingQuery(FilterData data) : IRequest<PaginationDTO<News>>;
 }

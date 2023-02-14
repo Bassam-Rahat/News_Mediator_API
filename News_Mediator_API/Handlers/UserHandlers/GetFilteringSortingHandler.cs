@@ -17,7 +17,7 @@ namespace News_Mediator_API.Handlers.UserHandlers
 
         public Task<PaginationDTO<User>> Handle(GetFilteringSortingQuery request, CancellationToken cancellationToken)
         {
-            return Task.FromResult(registerRepository.GetFilteringandSorting(request.page, request.columnName, request.find, request.sortOrder));
+            return Task.FromResult(registerRepository.GetFilteringandSorting(request.data));
         }
     }
 }

@@ -5,7 +5,7 @@ namespace News_Mediator_API.FilteringSorting
     public class Sorting<T>
     {
 
-        public List<T> GetSorting(string sortOrder, string columnName, IQueryable<T> data)
+        public IQueryable<T> Sort(string sortOrder, string columnName, IQueryable<T> data)
         {
             IQueryable<T> result;
             var parameter = Expression.Parameter(typeof(T), "x");
@@ -23,7 +23,7 @@ namespace News_Mediator_API.FilteringSorting
                     break;
             }
 
-            return result.ToList();
+            return result;
         }
 
         //public List<News> GetSorting(string sortOrder, IQueryable<News> _data)

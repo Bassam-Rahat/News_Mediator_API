@@ -82,18 +82,18 @@ public class RegisterRepository : IRegisterRepository
         return ("User Deleted Successfully!");
     }
 
-    public PaginationDTO<User> GetAll(int page)
+    public PaginationDTO<User> GetAll(int page, float pageSize)
     {
-        var result = _paginationResult.GetPagination<User>(page, _context.Users.AsQueryable());
+        var result = _paginationResult.GetPagination<User>(page, pageSize, _context.Users.AsQueryable());
         return result;
     }
 
-    public PaginationDTO<User> GetFilteringandSorting(int page, string columnName, string find, string sortOrder)
+    public PaginationDTO<User> GetFilteringandSorting(FilterData data)
     {
         var query = _context.Users.AsQueryable();
-        var filter = _filtering.GetFiltering<User>(columnName, find, query);
-        var sort = _sorting.GetSorting(sortOrder, columnName, filter.AsQueryable());
-        var result = _paginationResult.GetPagination(page, sort.AsQueryable());
+        var filter = _filtering.Filter<User>(data.columnName, data.find, query);
+        var sort = _sorting.Sort(data.sortOrder, data.columnName, filter);
+        var result = _paginationResult.GetPagination(data.page, data.pageSize, sort);
         _context.SaveChanges();
         return result;
     }

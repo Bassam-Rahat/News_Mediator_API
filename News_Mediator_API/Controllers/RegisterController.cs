@@ -73,7 +73,7 @@ public class UsersController : ControllerBase
     }
 
     [Authorize(Role.Admin, Role.User)]
-    [HttpGet("GetAllUsers")]
+    [HttpGet]
     public async Task<ActionResult<List<User>>> Get()
     {
         var result = await _mediatR.Send(new GetUsersQuery());
@@ -99,18 +99,18 @@ public class UsersController : ControllerBase
     }
 
     [Authorize(Role.Admin, Role.User)]
-    [HttpGet("GetPaginated")]
-    public async Task<ActionResult<PaginationDTO<User>>> GetAll(int page)
+    [HttpGet("Paginated")]
+    public async Task<ActionResult<PaginationDTO<User>>> GetAll(int page, float pageSize)
     {
-        var users = await _mediatR.Send(new GetPaginatedQuery(page));
+        var users = await _mediatR.Send(new GetPaginatedQuery(page, pageSize));
         return Ok(users);
     }
 
     [Authorize(Role.Admin, Role.User)]
-    [HttpGet("GetFilteringandSorting")]
-    public async Task<ActionResult<PaginationDTO<User>>> GetFilteringandSorting(int page, string columnName, string find, string sortOrder)
+    [HttpGet("Filter")]
+    public async Task<ActionResult<PaginationDTO<User>>> GetFilteringandSorting([FromQuery] FilterData data)
     {
-        var users = await _mediatR.Send(new GetFilteringSortingQuery(page, columnName, find, sortOrder));
+        var users = await _mediatR.Send(new GetFilteringSortingQuery(data));
         return Ok(users);
     }
 }

@@ -5,8 +5,8 @@ namespace News_Mediator_API.Interfaces
 {
     public interface INewsRepository
     {
-        PaginationDTO<News> Get(int page);
-        PaginationDTO<News> GetFilterAndSorting(int page, string columnName, string find, string sortOrder);
+        PaginationDTO<News> Get(int page, float pageSize);
+        PaginationDTO<News> GetFilterAndSorting(FilterData data);
         List<News> GetAll();
         News GetById(int id);
         string Add(News news);

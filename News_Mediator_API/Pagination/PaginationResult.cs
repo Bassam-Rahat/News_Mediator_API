@@ -2,10 +2,13 @@
 {
     public class PaginationResult
     {
-        public PaginationDTO<T> GetPagination<T>(int page, IQueryable<T> items)
+        public PaginationDTO<T> GetPagination<T>(int page, float pageSize, IQueryable<T> items)
         {
-            var pageResults = 3f;
+            var pageResults = pageSize;
             var pageCount = Math.Ceiling(items.Count() / pageResults);
+            var totalCount = items.Count();
+            bool hasPrevious = page > 1;
+            bool hasNext = page < pageCount;
 
             items = items
                 .Skip((page - 1) * (int)pageResults)
@@ -17,7 +20,10 @@
             {
                 Items = findItems,
                 CurrentPage = page,
-                Pages = (int)pageCount
+                Pages = (int)pageCount,
+                TotalCount= totalCount,
+                HasPrevious= hasPrevious,
+                HasNext= hasNext
             };
 
             return paginationResponse;

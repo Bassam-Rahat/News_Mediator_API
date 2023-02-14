@@ -17,7 +17,7 @@ namespace News_Mediator_API.Handlers.BookmarkHandlers
 
         public Task<PaginationDTO<News>> Handle(GetBMFilteringSortingQuery request, CancellationToken cancellationToken)
         {
-            return Task.FromResult(bookmarkRepository.GetFilterAndSorting(request.page, request.columnName, request.find, request.sortOrder));
+            return Task.FromResult(bookmarkRepository.GetFilterAndSorting(request.data));
         }
     }
 }

@@ -11,7 +11,7 @@ namespace News_Mediator_API.Interfaces
         User GetById(int id);
         List<User> Get();
         string Delete(int id);
-        PaginationDTO<User> GetAll(int page);
-        PaginationDTO<User> GetFilteringandSorting(int page, string columnName, string find, string sortOrder);
+        PaginationDTO<User> GetAll(int page, float pageSize);
+        PaginationDTO<User> GetFilteringandSorting(FilterData data);
     }
 }

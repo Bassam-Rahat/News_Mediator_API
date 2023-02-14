@@ -7,8 +7,8 @@ namespace News_Mediator_API.Interfaces
     {
         string Delete(int id);
         string Save(int id);
-        PaginationDTO<News> Get(int page);
+        PaginationDTO<News> Get(int page, float pageSize);
         List<News> GetAll();
-        PaginationDTO<News> GetFilterAndSorting(int page, string columnName, string find, string sortOrder);
+        PaginationDTO<News> GetFilterAndSorting(FilterData data);
     }
 }

@@ -17,7 +17,7 @@ namespace News_Mediator_API.Handlers.UserHandlers
 
         public Task<PaginationDTO<User>> Handle(GetPaginatedQuery request, CancellationToken cancellationToken)
         {
-            return Task.FromResult(registerRepository.GetAll(request.page));
+            return Task.FromResult(registerRepository.GetAll(request.page, request.pageSize));
         }
     }
 }

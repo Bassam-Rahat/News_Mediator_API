@@ -6,7 +6,7 @@ using News_Mediator_API.Queries.NewsQueries;
 
 namespace News_Mediator_API.Handlers.NewsHandlers
 {
-    public class GetFilteringSortingHandler : IRequestHandler<GetFilteringSortingQuery, PaginationDTO<News>>
+    public class GetFilteringSortingHandler : IRequestHandler<GetNewsFilteringSortingQuery, PaginationDTO<News>>
     {
         private readonly INewsRepository newsRepository;
 
@@ -15,9 +15,9 @@ namespace News_Mediator_API.Handlers.NewsHandlers
             this.newsRepository = newsRepository;
         }
 
-        public Task<PaginationDTO<News>> Handle(GetFilteringSortingQuery request, CancellationToken cancellationToken)
+        public Task<PaginationDTO<News>> Handle(GetNewsFilteringSortingQuery request, CancellationToken cancellationToken)
         {
-            return Task.FromResult(newsRepository.GetFilterAndSorting(request.page, request.columnName, request.find, request.sortOrder));
+            return Task.FromResult(newsRepository.GetFilterAndSorting(request.data));
         }
     }
 }
