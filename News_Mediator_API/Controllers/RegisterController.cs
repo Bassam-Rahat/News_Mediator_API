@@ -1,0 +1,116 @@
+﻿namespace News_Mediator_API.Controllers;
+
+using MediatR;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using News_Mediator_API.Authorization;
+using News_Mediator_API.Commands;
+using News_Mediator_API.Commands.UserCommands;
+using News_Mediator_API.Entities;
+using News_Mediator_API.Handlers;
+using News_Mediator_API.Interfaces;
+using News_Mediator_API.Models;
+using News_Mediator_API.Pagination;
+using News_Mediator_API.Queries;
+using News_Mediator_API.Queries.UserQueries;
+using News_Mediator_API.Users;
+
+[Authorize]
+[ApiController]
+[Route("[controller]")]
+public class UsersController : ControllerBase
+{
+    private readonly IMediator _mediatR;
+
+    public UsersController(IMediator mediator)
+    {
+        _mediatR = mediator;
+    }
+
+    [AllowAnonymous]
+    [HttpPost("Register")]
+    public async Task<ActionResult<string>> Add(User user)
+    {
+        var result = await _mediatR.Send(new AddUserCommand(user));
+        return Ok(result);
+    }
+
+    [AllowAnonymous]
+    [HttpPost("Login")]
+    public async Task<IActionResult> Authenticate(UserDataRequest model)
+    {
+        var response = await _mediatR.Send(new LoginUserCoommand(model));
+        //var response = _userService.Authenticate(model);
+        //var result = response as UserDataResponse;
+        //return Ok(new
+        //{
+        //    response.Id,
+        //    response.UserName,
+        //    response.Email,
+        //    response.Password,
+        //    response.Role,
+        //    response.Token
+        //});
+        return Ok(response);
+    }
+
+    [Authorize(Role.Admin)]
+    [HttpGet("{id:int}")]
+    public async Task<IActionResult> GetById(int id)
+    {
+        // only admins can access other user records
+        //var currentUser = (User)HttpContext.Items["User"];
+        //if (id != currentUser.Id && currentUser.Role != Role.Admin)
+        //    return Unauthorized(new { message = "Unauthorized" });
+
+        var user = await _mediatR.Send(new GetUserByIDQuery(id));
+
+        if(user == null)
+        {
+            return NotFound("No User with such ID Found!");
+        }
+        return Ok(user);
+    }
+
+    [Authorize(Role.Admin, Role.User)]
+    [HttpGet("GetAllUsers")]
+    public async Task<ActionResult<List<User>>> Get()
+    {
+        var result = await _mediatR.Send(new GetUsersQuery());
+
+        if (result is null)
+        {
+            return NotFound("No User Found");
+        }
+        return Ok(result);
+    }
+
+    [Authorize(Role.Admin, Role.User)]
+    [HttpDelete("{id}")]
+    public async Task<ActionResult<string>> Delete(int id)
+    {
+        var result = await _mediatR.Send(new DeleteUserCommand(id));    
+
+        if (result is null)
+        {
+            return NotFound("No User Found");
+        }
+        return Ok(result);
+    }
+
+    [Authorize(Role.Admin, Role.User)]
+    [HttpGet("GetPaginated")]
+    public async Task<ActionResult<PaginationDTO<User>>> GetAll(int page)
+    {
+        var users = await _mediatR.Send(new GetPaginatedQuery(page));
+        return Ok(users);
+    }
+
+    [Authorize(Role.Admin, Role.User)]
+    [HttpGet("GetFilteringandSorting")]
+    public async Task<ActionResult<PaginationDTO<User>>> GetFilteringandSorting(int page, string columnName, string find, string sortOrder)
+    {
+        var users = await _mediatR.Send(new GetFilteringSortingQuery(page, columnName, find, sortOrder));
+        return Ok(users);
+    }
+}
