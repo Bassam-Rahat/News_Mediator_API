@@ -73,6 +73,7 @@ var builder = WebApplication.CreateBuilder(args);
     builder.Services.AddScoped<IBookmarkRepository, BookmarkRepository>();
     builder.Services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
     builder.Services.AddScoped(typeof(IIdentityService), typeof(IdentityService));
+    builder.Services.AddAutoMapper(typeof(Program).Assembly);
 
 }
 

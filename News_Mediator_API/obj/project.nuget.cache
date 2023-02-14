@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "121HP4nSdsiuGq11aez7B3l5vldSJVKsift4Py5H5RW3Z7jE4nPuDUr/cFLOQyWxpa8aIz9awpnwoTJGFGO6wA==",
+  "dgSpecHash": "jZ1VJoBDO95SQlrA35KWJoxkDaB9tOdcWubj0rSazNNVVhiL4nqJkI74nK1B0X2MKjsvQBXCCeAIQhO5lwlzQA==",
   "success": true,
   "projectFilePath": "C:\\Users\\INSIGNIA PC\\source\\repos\\News_Mediator_API\\News_Mediator_API\\News_Mediator_API.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\INSIGNIA PC\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
+    "C:\\Users\\INSIGNIA PC\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
     "C:\\Users\\INSIGNIA PC\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\INSIGNIA PC\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\INSIGNIA PC\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",

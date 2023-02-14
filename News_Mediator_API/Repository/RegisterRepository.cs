@@ -1,5 +1,7 @@
 ﻿namespace News_Mediator_API.Repository;
 
+using AutoMapper;
+using global::AutoMapper;
 using Microsoft.Extensions.Options;
 using News_Mediator_API.FilteringSorting;
 using News_Mediator_API.Helpers;
@@ -18,12 +20,14 @@ public class RegisterRepository : IRegisterRepository
     private NewsApiContext _context;
     private IJwtUtils _jwtUtils;
     private readonly AppSettings _appSettings;
+    private readonly IMapper _mapper;
 
-    public RegisterRepository(NewsApiContext context, IJwtUtils jwtutils, IOptions<AppSettings> appSettings)
+    public RegisterRepository(NewsApiContext context, IJwtUtils jwtutils, IOptions<AppSettings> appSettings, IMapper mapper)
     {
         _context = context;
         _jwtUtils = jwtutils;
         _appSettings = appSettings.Value;
+        _mapper = mapper;
     }
 
     public UserDataResponse Authenticate(UserDataRequest model)
@@ -55,14 +59,17 @@ public class RegisterRepository : IRegisterRepository
         return user;
     }
 
-    public List<User> Get()
+    public List<UserDTO> Get()
     {
         if (_context.Users is null)
         {
             return null;
         }
         _context.SaveChanges();
-        return (_context.Users.ToList());
+
+        var users = _context.Users.ToList();
+        var userDTOs = _mapper.Map<List<UserDTO>>(users);
+        return userDTOs;
     }
 
     public string Delete(int id)

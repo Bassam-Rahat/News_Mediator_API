@@ -5,7 +5,7 @@ using News_Mediator_API.Queries.UserQueries;
 
 namespace News_Mediator_API.Handlers.UserHandlers
 {
-    public class GetUsersHandler : IRequestHandler<GetUsersQuery, List<User>>
+    public class GetUsersHandler : IRequestHandler<GetUsersQuery, List<UserDTO>>
     {
         private readonly IRegisterRepository _registerRepository;
         public GetUsersHandler(IRegisterRepository registerRepository)
@@ -13,7 +13,7 @@ namespace News_Mediator_API.Handlers.UserHandlers
             _registerRepository = registerRepository;
         }
 
-        public Task<List<User>> Handle(GetUsersQuery request, CancellationToken cancellationToken)
+        public Task<List<UserDTO>> Handle(GetUsersQuery request, CancellationToken cancellationToken)
         {
             return Task.FromResult(_registerRepository.Get());
         }

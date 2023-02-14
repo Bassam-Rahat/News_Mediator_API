@@ -72,9 +72,9 @@ public class UsersController : ControllerBase
         return Ok(user);
     }
 
-    [Authorize(Role.Admin, Role.User)]
+    [AllowAnonymous]
     [HttpGet]
-    public async Task<ActionResult<List<User>>> Get()
+    public async Task<ActionResult<List<UserDTO>>> Get()
     {
         var result = await _mediatR.Send(new GetUsersQuery());
 
