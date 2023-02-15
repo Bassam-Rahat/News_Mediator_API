@@ -1,8 +1,8 @@
 ﻿namespace News_Mediator_API.Pagination
 {
-    public class PaginationResult
+    public static class PaginationResult
     {
-        public PaginationDTO<T> GetPagination<T>(int page, float pageSize, IQueryable<T> items)
+        public static PaginationDTO<T> GetPagination<T>(int page, float pageSize, IQueryable<T> items)
         {
             var pageResults = pageSize;
             var pageCount = Math.Ceiling(items.Count() / pageResults);

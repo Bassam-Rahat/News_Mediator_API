@@ -8,9 +8,9 @@ namespace News_Mediator_API.Repository
 {
     public class BookmarkRepository : IBookmarkRepository
     {
-        PaginationResult _paginationResult = new PaginationResult();
-        Filtering _filtering = new Filtering();
-        Sorting<News> _sorting = new Sorting<News>();
+        //PaginationResult _paginationResult = new PaginationResult();
+        //Filtering _filtering = new Filtering();
+        //Sorting<News> _sorting = new Sorting<News>();
 
         private readonly NewsApiContext _context;
         private IJwtUtils _jwtUtils;
@@ -35,7 +35,7 @@ namespace News_Mediator_API.Repository
             .Where(n => bookmarkedIds.Contains(n.Id))
             .ToList();
 
-            var result = _paginationResult.GetPagination(page, pageSize, newsArticles.AsQueryable());
+            var result = PaginationResult.GetPagination(page, pageSize, newsArticles.AsQueryable());
 
             if (result is null)
             {
@@ -116,9 +116,9 @@ namespace News_Mediator_API.Repository
             .Where(n => bookmarkedIds.Contains(n.Id))
             .ToList();
 
-            var filter = _filtering.Filter<News>(data.columnName, data.find, newsArticles.AsQueryable());
-            var sort = _sorting.Sort(data.sortOrder, data.columnName, filter.AsQueryable());
-            var result = _paginationResult.GetPagination(data.page,data.pageSize, filter.AsQueryable());
+            var filter = Filtering.Filter<News>(data.columnName, data.find, newsArticles.AsQueryable());
+            var sort = Sorting<News>.Sort(data.sortOrder, data.columnName, filter.AsQueryable());
+            var result = PaginationResult.GetPagination(data.page,data.pageSize, filter.AsQueryable());
             _context.SaveChanges();
             return result;
         }

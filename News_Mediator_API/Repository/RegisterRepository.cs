@@ -13,9 +13,9 @@ using System.Web.Http.Filters;
 
 public class RegisterRepository : IRegisterRepository
 {
-    PaginationResult _paginationResult = new PaginationResult();
-    Filtering _filtering = new Filtering();
-    Sorting<User> _sorting = new Sorting<User>();
+    //PaginationResult _paginationResult = new PaginationResult();
+    //Filtering _filtering = new Filtering();
+    //Sorting<User> _sorting = new Sorting<User>();
 
     private NewsApiContext _context;
     private IJwtUtils _jwtUtils;
@@ -41,12 +41,18 @@ public class RegisterRepository : IRegisterRepository
         // authentication successful so generate jwt token
         var jwtToken = _jwtUtils.GenerateJwtToken(user);
 
-        return new UserDataResponse(user, jwtToken);
+        //return new UserDataResponse(user, jwtToken);
+
+        var userDataResponse = _mapper.Map<UserDataResponse>(user);
+        userDataResponse.Token = jwtToken;
+
+        return userDataResponse;
     }
 
-    public string Add(User User)
+    public string Add(User user)
     {
-        _context.Users.Add(User);
+        //var user = _mapper.Map<User>(newUser);
+        _context.Users.Add(user);
         _context.SaveChanges();
 
         return ("Added Successfully!");
@@ -59,7 +65,7 @@ public class RegisterRepository : IRegisterRepository
         return user;
     }
 
-    public List<UserDTO> Get()
+    public List<User> Get()
     {
         if (_context.Users is null)
         {
@@ -67,9 +73,7 @@ public class RegisterRepository : IRegisterRepository
         }
         _context.SaveChanges();
 
-        var users = _context.Users.ToList();
-        var userDTOs = _mapper.Map<List<UserDTO>>(users);
-        return userDTOs;
+        return (_context.Users.ToList());
     }
 
     public string Delete(int id)
@@ -91,16 +95,16 @@ public class RegisterRepository : IRegisterRepository
 
     public PaginationDTO<User> GetAll(int page, float pageSize)
     {
-        var result = _paginationResult.GetPagination<User>(page, pageSize, _context.Users.AsQueryable());
+        var result = PaginationResult.GetPagination<User>(page, pageSize, _context.Users.AsQueryable());
         return result;
     }
 
     public PaginationDTO<User> GetFilteringandSorting(FilterData data)
     {
         var query = _context.Users.AsQueryable();
-        var filter = _filtering.Filter<User>(data.columnName, data.find, query);
-        var sort = _sorting.Sort(data.sortOrder, data.columnName, filter);
-        var result = _paginationResult.GetPagination(data.page, data.pageSize, sort);
+        var filter = Filtering.Filter<User>(data.columnName, data.find, query);
+        var sort = Sorting<User>.Sort(data.sortOrder, data.columnName, filter);
+        var result = PaginationResult.GetPagination(data.page, data.pageSize, sort);
         _context.SaveChanges();
         return result;
     }

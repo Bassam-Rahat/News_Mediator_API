@@ -2,10 +2,10 @@
 
 namespace News_Mediator_API.FilteringSorting
 {
-    public class Sorting<T>
+    public static class Sorting<T>
     {
 
-        public IQueryable<T> Sort(string sortOrder, string columnName, IQueryable<T> data)
+        public static IQueryable<T> Sort(string sortOrder, string columnName, IQueryable<T> data)
         {
             IQueryable<T> result;
             var parameter = Expression.Parameter(typeof(T), "x");

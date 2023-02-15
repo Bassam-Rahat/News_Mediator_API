@@ -1,22 +1,27 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using News_Mediator_API.Interfaces;
 using News_Mediator_API.Models;
 using News_Mediator_API.Queries.NewsQueries;
 
 namespace News_Mediator_API.Handlers.NewsHandlers
 {
-    public class GetAllHandler : IRequestHandler<GetAllQuery, List<News>>
+    public class GetAllHandler : IRequestHandler<GetAllQuery, List<NewsDTO>>
     {
         private readonly INewsRepository _newsRepository;
-
-        public GetAllHandler(INewsRepository newsRepository)
+        private readonly IMapper _mapper;
+        public GetAllHandler(INewsRepository newsRepository, IMapper mapper)
         {
             _newsRepository = newsRepository;
+            _mapper = mapper;   
         }
 
-        public Task<List<News>> Handle(GetAllQuery request, CancellationToken cancellationToken)
+        public Task<List<NewsDTO>> Handle(GetAllQuery request, CancellationToken cancellationToken)
         {
-            return Task.FromResult(_newsRepository.GetAll());
+            var news = _newsRepository.GetAll();
+            var newsDTOs = _mapper.Map<List<NewsDTO>>(news);
+
+            return Task.FromResult(newsDTOs);
         }
     }
 }

@@ -8,9 +8,9 @@ namespace News_Mediator_API.Repository
 {
     public class NewsRepository : INewsRepository
     {
-        PaginationResult _paginationResult = new PaginationResult();
-        Filtering _filtering = new Filtering();
-        Sorting<News> _sorting = new Sorting<News>();
+        //PaginationResult _paginationResult = new PaginationResult();
+        //Filtering Filtering = new Filtering();
+        //Sorting<News> _sorting = new Sorting<News>();
 
         private readonly NewsApiContext _context;
         public NewsRepository(NewsApiContext context)
@@ -28,13 +28,12 @@ namespace News_Mediator_API.Repository
         public string Delete(int id)
         {
             var _News = _context.News.FirstOrDefault(x => x.Id == id);
-            var _Bookmark = _context.BookMarks.FirstOrDefault(x => x.NewsId == id);
 
             if (_News == null)
             {
                 return null;
             }
-
+            var _Bookmark = _context.BookMarks.Where(x => x.NewsId == id);
             _context.News.Remove(_News);
             _context.BookMarks.RemoveRange(_Bookmark);
 
@@ -45,7 +44,7 @@ namespace News_Mediator_API.Repository
         public PaginationDTO<News> Get(int page, float pageSize)
         {
             var query = _context.News.AsQueryable();
-            var result = _paginationResult.GetPagination(page,pageSize, query);
+            var result = PaginationResult.GetPagination(page,pageSize, query);
             _context.SaveChanges();
             return result;
         }
@@ -88,9 +87,9 @@ namespace News_Mediator_API.Repository
         public PaginationDTO<News> GetFilterAndSorting(FilterData data)
         {
             var query = _context.News.AsQueryable();
-            var filter = _filtering.Filter<News>(data.columnName, data.find, query);
-            var sort = _sorting.Sort(data.sortOrder, data.columnName, filter.AsQueryable());
-            var result = _paginationResult.GetPagination(data.page,data.pageSize, sort.AsQueryable());
+            var filter = Filtering.Filter<News>(data.columnName, data.find, query);
+            var sort = Sorting<News>.Sort(data.sortOrder, data.columnName, filter);
+            var result = PaginationResult.GetPagination(data.page,data.pageSize, sort);
             _context.SaveChanges();
             return result;
         }

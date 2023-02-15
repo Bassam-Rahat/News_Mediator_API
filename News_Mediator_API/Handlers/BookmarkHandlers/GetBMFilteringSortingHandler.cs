@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using News_Mediator_API.Interfaces;
 using News_Mediator_API.Models;
 using News_Mediator_API.Pagination;
@@ -6,18 +7,22 @@ using News_Mediator_API.Queries.BookmarkQueries;
 
 namespace News_Mediator_API.Handlers.BookmarkHandlers
 {
-    public class GetBMFilteringSortingHandler : IRequestHandler<GetBMFilteringSortingQuery, PaginationDTO<News>>
+    public class GetBMFilteringSortingHandler : IRequestHandler<GetBMFilteringSortingQuery, PaginationDTO<NewsDTO>>
     {
         private readonly IBookmarkRepository bookmarkRepository;
+        private readonly IMapper _mapper;
 
-        public GetBMFilteringSortingHandler(IBookmarkRepository bookmarkRepository)
+        public GetBMFilteringSortingHandler(IBookmarkRepository bookmarkRepository, IMapper mapper)
         {
             this.bookmarkRepository = bookmarkRepository;
+            _mapper = mapper;
         }
 
-        public Task<PaginationDTO<News>> Handle(GetBMFilteringSortingQuery request, CancellationToken cancellationToken)
+        public Task<PaginationDTO<NewsDTO>> Handle(GetBMFilteringSortingQuery request, CancellationToken cancellationToken)
         {
-            return Task.FromResult(bookmarkRepository.GetFilterAndSorting(request.data));
+            var news = bookmarkRepository.GetFilterAndSorting(request.data);
+            var newsDTOs = _mapper.Map<PaginationDTO<NewsDTO>>(news);
+            return Task.FromResult(newsDTOs);
         }
     }
 }

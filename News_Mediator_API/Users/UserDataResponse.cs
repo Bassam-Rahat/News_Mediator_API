@@ -12,13 +12,13 @@ public class UserDataResponse
     public Role Role { get; set; }
     public string Token { get; set; }
 
-    public UserDataResponse(User user, string token)
-    {
-        Id = user.Id;
-        UserName = user.UserName;
-        Email = user.Email;
-        Password = user.Password;
-        Role = user.Role;
-        Token = token;
-    }
+    //public UserDataResponse(User user, string token)
+    //{
+    //    Id = user.Id;
+    //    UserName = user.UserName;
+    //    Email = user.Email;
+    //    Password = user.Password;
+    //    Role = user.Role;
+    //    Token = token;
+    //}
 }
