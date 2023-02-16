@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "jZ1VJoBDO95SQlrA35KWJoxkDaB9tOdcWubj0rSazNNVVhiL4nqJkI74nK1B0X2MKjsvQBXCCeAIQhO5lwlzQA==",
+  "dgSpecHash": "XOLZ4Uczykg/Gmel41k1TxjNdlmRNuYox2xI0ieYYQDOcijcON6Fc+Mgmb9pBbMIPCWU6bOzxz4lnuGwf8TwHA==",
   "success": true,
   "projectFilePath": "C:\\Users\\INSIGNIA PC\\source\\repos\\News_Mediator_API\\News_Mediator_API\\News_Mediator_API.csproj",
   "expectedPackageFiles": [
@@ -23,9 +23,9 @@
     "C:\\Users\\INSIGNIA PC\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\INSIGNIA PC\\.nuget\\packages\\microsoft.data.sqlclient\\5.0.1\\microsoft.data.sqlclient.5.0.1.nupkg.sha512",
     "C:\\Users\\INSIGNIA PC\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\5.0.1\\microsoft.data.sqlclient.sni.runtime.5.0.1.nupkg.sha512",
-    "C:\\Users\\INSIGNIA PC\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.2\\microsoft.entityframeworkcore.7.0.2.nupkg.sha512",
-    "C:\\Users\\INSIGNIA PC\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.2\\microsoft.entityframeworkcore.abstractions.7.0.2.nupkg.sha512",
-    "C:\\Users\\INSIGNIA PC\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.2\\microsoft.entityframeworkcore.analyzers.7.0.2.nupkg.sha512",
+    "C:\\Users\\INSIGNIA PC\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.3\\microsoft.entityframeworkcore.7.0.3.nupkg.sha512",
+    "C:\\Users\\INSIGNIA PC\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.3\\microsoft.entityframeworkcore.abstractions.7.0.3.nupkg.sha512",
+    "C:\\Users\\INSIGNIA PC\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.3\\microsoft.entityframeworkcore.analyzers.7.0.3.nupkg.sha512",
     "C:\\Users\\INSIGNIA PC\\.nuget\\packages\\microsoft.entityframeworkcore.design\\7.0.2\\microsoft.entityframeworkcore.design.7.0.2.nupkg.sha512",
     "C:\\Users\\INSIGNIA PC\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\7.0.2\\microsoft.entityframeworkcore.relational.7.0.2.nupkg.sha512",
     "C:\\Users\\INSIGNIA PC\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\7.0.2\\microsoft.entityframeworkcore.sqlserver.7.0.2.nupkg.sha512",

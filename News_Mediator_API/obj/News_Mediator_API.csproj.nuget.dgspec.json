@@ -82,6 +82,10 @@
               "target": "Package",
               "version": "[7.0.2, )"
             },
+            "Microsoft.Entityframeworkcore": {
+              "target": "Package",
+              "version": "[7.0.3, )"
+            },
             "Microsoft.IdentityModel.Tokens": {
               "target": "Package",
               "version": "[6.26.1, )"
