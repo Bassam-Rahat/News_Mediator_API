@@ -24,9 +24,9 @@ public class UsersController : ControllerBase
 
     [AllowAnonymous]
     [HttpPost("Register")]
-    public async Task<ActionResult<string>> Add(UserDTO user)
+    public async Task<ActionResult<UserDTO>> Add(AddUserCommand user)
     {
-        var result = await _mediatR.Send(new AddUserCommand(user));
+        var result = await _mediatR.Send(user);
         return Ok(result);
     }
 

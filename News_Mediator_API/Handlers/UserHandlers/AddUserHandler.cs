@@ -6,7 +6,7 @@ using News_Mediator_API.Models;
 
 namespace News_Mediator_API.Handlers.UserHandlers
 {
-    public class AddUserHandler : IRequestHandler<AddUserCommand, string>
+    public class AddUserHandler : IRequestHandler<AddUserCommand, UserDTO>
     {
         private readonly IRegisterRepository _registerRepository;
         private readonly IMapper _mapper;
@@ -16,12 +16,13 @@ namespace News_Mediator_API.Handlers.UserHandlers
             _mapper = mapper;
         }
 
-        public Task<string> Handle(AddUserCommand request, CancellationToken cancellationToken)
+        public Task<UserDTO> Handle(AddUserCommand request, CancellationToken cancellationToken)
         {
-            var user = _mapper.Map<User>(request.user);
-            var addUser = (_registerRepository.Add(user));
+            var user = _mapper.Map<User>(request);
+            var add = (_registerRepository.Add(user));
+            var userDTO = _mapper.Map<UserDTO>(add);
 
-            return Task.FromResult(addUser);
+            return Task.FromResult(userDTO);
         }
     }
 }

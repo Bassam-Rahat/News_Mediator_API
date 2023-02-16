@@ -25,7 +25,7 @@ namespace News_Mediator_API.Controllers
 
         [Authorize(Role.User)]
         [HttpPost]
-        public async Task<ActionResult<string>> Save(int id)
+        public async Task<ActionResult<NewsDTO>> Save(int id)
         {
             var result = await _mediator.Send(new SaveCommand(id));
 

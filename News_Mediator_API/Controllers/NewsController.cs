@@ -69,9 +69,9 @@ namespace News_Mediator_API.Controllers
 
         [Authorize(Role.Admin)]
         [HttpPost]
-        public async Task<ActionResult<string>> Add(NewsDTO news)
+        public async Task<ActionResult<NewsDTO>> Add(AddCommand news)
         {
-            var result = await _mediator.Send(new AddCommand(news));
+            var result = await _mediator.Send(news);
             return Ok(result);
         }
 

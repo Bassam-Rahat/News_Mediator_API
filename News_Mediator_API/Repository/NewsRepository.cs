@@ -18,11 +18,11 @@ namespace News_Mediator_API.Repository
             _context = context;
         }
 
-        public string Add(News news)
+        public News Add(News news)
         {
             _context.News.Add(news);
             _context.SaveChanges();
-            return ("News added successfully!");
+            return news;
         }
 
         public string Delete(int id)

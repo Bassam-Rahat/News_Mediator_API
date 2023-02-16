@@ -7,7 +7,7 @@ using News_Mediator_API.Repository;
 
 namespace News_Mediator_API.Handlers.NewsHandlers
 {
-    public class AddHandler : IRequestHandler<AddCommand, string>
+    public class AddHandler : IRequestHandler<AddCommand, NewsDTO>
     {
         private readonly INewsRepository newsRepository;
         private readonly IMapper _mapper;
@@ -18,10 +18,11 @@ namespace News_Mediator_API.Handlers.NewsHandlers
             _mapper = mapper;
         }
 
-        public Task<string> Handle(AddCommand request, CancellationToken cancellationToken)
+        public Task<NewsDTO> Handle(AddCommand request, CancellationToken cancellationToken)
         {
-            var news = _mapper.Map<News>(request.news);
-            var addNews = (newsRepository.Add(news));
+            var news = _mapper.Map<News>(request);
+            var add = (newsRepository.Add(news));
+            var addNews = _mapper.Map<NewsDTO>(add);
 
             return Task.FromResult(addNews);
         }

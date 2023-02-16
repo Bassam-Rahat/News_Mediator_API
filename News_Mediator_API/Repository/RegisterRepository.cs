@@ -49,13 +49,13 @@ public class RegisterRepository : IRegisterRepository
         return userDataResponse;
     }
 
-    public string Add(User user)
+    public User Add(User user)
     {
         //var user = _mapper.Map<User>(newUser);
         _context.Users.Add(user);
         _context.SaveChanges();
 
-        return ("Added Successfully!");
+        return user;
     }
 
     public User GetById(int id)

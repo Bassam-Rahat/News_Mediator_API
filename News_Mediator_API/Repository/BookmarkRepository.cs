@@ -44,13 +44,13 @@ namespace News_Mediator_API.Repository
             return (result);
         }
 
-        string IBookmarkRepository.Save(int id)
+        News IBookmarkRepository.Save(int id)
         {
             BookMark bookmark = new BookMark();
 
             int userId = _identityService.GetUserId().Value;
 
-            var news = _context.News.Where(x => x.Id == id);
+            var news = _context.News.FirstOrDefault(x => x.Id == id);
             var user = _context.Users.FirstOrDefault(x => x.Id == userId);
 
             if (user is null && news is null)
@@ -64,7 +64,7 @@ namespace News_Mediator_API.Repository
             _context.BookMarks.Add(bookmark);
             _context.SaveChanges();
 
-            return ("Bookmark Saved Successfully!");
+            return news;
         }
 
         string IBookmarkRepository.Delete(int id)
