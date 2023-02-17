@@ -25,7 +25,7 @@ namespace News_Mediator_API.Controllers
 
         [Authorize(Role.User)]
         [HttpPost]
-        public async Task<ActionResult<string>> Save(int id)
+        public async Task<ActionResult<NewsDTO>> Save(int id)
         {
             var result = await _mediator.Send(new SaveCommand(id));
 
@@ -38,7 +38,7 @@ namespace News_Mediator_API.Controllers
 
         [Authorize(Role.User)]
         [HttpGet("Paginated")]
-        public async Task<ActionResult<PaginationDTO<News>>> Get(int page, float pageSize)
+        public async Task<ActionResult<PaginationDTO<NewsDTO>>> Get(int page, float pageSize)
         {
             var result = await _mediator.Send(new GetBookmarkPaginationQuery(page, pageSize));
 
@@ -51,7 +51,7 @@ namespace News_Mediator_API.Controllers
 
         [Authorize(Role.User)]
         [HttpGet("Filter")]
-        public async Task<ActionResult<PaginationDTO<News>>> GetFilterAndSorting([FromQuery] FilterData data)
+        public async Task<ActionResult<PaginationDTO<NewsDTO>>> GetFilterAndSorting([FromQuery] FilterData data)
         {
             var result = await _mediator.Send(new GetBMFilteringSortingQuery(data));
             return Ok(result);
@@ -60,7 +60,7 @@ namespace News_Mediator_API.Controllers
 
         [Authorize(Role.User)]
         [HttpGet]
-        public async Task<ActionResult<List<News>>> GetAll()
+        public async Task<ActionResult<List<NewsDTO>>> GetAll()
         {
             var result = await _mediator.Send(new GetQuery());
 

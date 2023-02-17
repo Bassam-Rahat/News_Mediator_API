@@ -10,6 +10,7 @@ using News_Mediator_API.Interfaces;
 using News_Mediator_API.Models;
 using News_Mediator_API.Repository;
 using System.Reflection;
+using System.Configuration;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,8 +21,11 @@ var builder = WebApplication.CreateBuilder(args);
     var env = builder.Environment;
 
 
-    builder.Services.AddDbContext<NewsApiContext>(opt =>
-    opt.UseSqlServer("News_System"));
+    //builder.Services.AddDbContext<NewsApiContext>(opt =>
+    //opt.UseSqlServer("News_System"));
+    builder.Services.AddDbContext<NewsApiContext>();
+
+
     builder.Services.AddControllersWithViews()
     .AddNewtonsoftJson(options =>
     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
@@ -73,6 +77,7 @@ var builder = WebApplication.CreateBuilder(args);
     builder.Services.AddScoped<IBookmarkRepository, BookmarkRepository>();
     builder.Services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
     builder.Services.AddScoped(typeof(IIdentityService), typeof(IdentityService));
+    builder.Services.AddAutoMapper(typeof(Program).Assembly);
 
 }
 

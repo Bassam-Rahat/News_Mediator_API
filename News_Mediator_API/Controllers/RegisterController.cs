@@ -1,17 +1,12 @@
 ﻿namespace News_Mediator_API.Controllers;
 
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using News_Mediator_API.Authorization;
-using News_Mediator_API.Commands;
 using News_Mediator_API.Commands.UserCommands;
 using News_Mediator_API.Entities;
-using News_Mediator_API.Handlers;
-using News_Mediator_API.Interfaces;
 using News_Mediator_API.Models;
 using News_Mediator_API.Pagination;
-using News_Mediator_API.Queries;
 using News_Mediator_API.Queries.UserQueries;
 using News_Mediator_API.Users;
 
@@ -29,9 +24,9 @@ public class UsersController : ControllerBase
 
     [AllowAnonymous]
     [HttpPost("Register")]
-    public async Task<ActionResult<string>> Add(User user)
+    public async Task<ActionResult<UserDTO>> Add(AddUserCommand user)
     {
-        var result = await _mediatR.Send(new AddUserCommand(user));
+        var result = await _mediatR.Send(user);
         return Ok(result);
     }
 
@@ -72,9 +67,9 @@ public class UsersController : ControllerBase
         return Ok(user);
     }
 
-    [Authorize(Role.Admin, Role.User)]
+    [AllowAnonymous]
     [HttpGet]
-    public async Task<ActionResult<List<User>>> Get()
+    public async Task<ActionResult<List<UserDTO>>> Get()
     {
         var result = await _mediatR.Send(new GetUsersQuery());
 
@@ -100,7 +95,7 @@ public class UsersController : ControllerBase
 
     [Authorize(Role.Admin, Role.User)]
     [HttpGet("Paginated")]
-    public async Task<ActionResult<PaginationDTO<User>>> GetAll(int page, float pageSize)
+    public async Task<ActionResult<PaginationDTO<UserDTO>>> GetAll(int page, float pageSize)
     {
         var users = await _mediatR.Send(new GetPaginatedQuery(page, pageSize));
         return Ok(users);
@@ -108,7 +103,7 @@ public class UsersController : ControllerBase
 
     [Authorize(Role.Admin, Role.User)]
     [HttpGet("Filter")]
-    public async Task<ActionResult<PaginationDTO<User>>> GetFilteringandSorting([FromQuery] FilterData data)
+    public async Task<ActionResult<PaginationDTO<UserDTO>>> GetFilteringandSorting([FromQuery] FilterData data)
     {
         var users = await _mediatR.Send(new GetFilteringSortingQuery(data));
         return Ok(users);

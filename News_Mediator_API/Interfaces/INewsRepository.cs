@@ -9,7 +9,7 @@ namespace News_Mediator_API.Interfaces
         PaginationDTO<News> GetFilterAndSorting(FilterData data);
         List<News> GetAll();
         News GetById(int id);
-        string Add(News news);
+        News Add(News news);
         News Update(int id, News updateRequest);
         string Delete(int id);
     }

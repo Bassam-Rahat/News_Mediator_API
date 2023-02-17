@@ -2,9 +2,9 @@
 
 namespace News_Mediator_API.FilteringSorting
 {
-    public class Filtering
+    public static class Filtering
     {
-        public IQueryable<T> Filter<T>(string columnName, string value, IQueryable<T> _data) where T : class
+        public static IQueryable<T> Filter<T>(string columnName, string value, IQueryable<T> _data) where T : class
         {
             var parameter = Expression.Parameter(typeof(T), "x");
             var property = Expression.Property(parameter, columnName);

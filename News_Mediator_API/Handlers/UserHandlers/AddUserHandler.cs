@@ -1,20 +1,28 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using News_Mediator_API.Commands.UserCommands;
 using News_Mediator_API.Interfaces;
+using News_Mediator_API.Models;
 
 namespace News_Mediator_API.Handlers.UserHandlers
 {
-    public class AddUserHandler : IRequestHandler<AddUserCommand, string>
+    public class AddUserHandler : IRequestHandler<AddUserCommand, UserDTO>
     {
         private readonly IRegisterRepository _registerRepository;
-        public AddUserHandler(IRegisterRepository registerRepository)
+        private readonly IMapper _mapper;
+        public AddUserHandler(IRegisterRepository registerRepository, IMapper mapper)
         {
             _registerRepository = registerRepository;
+            _mapper = mapper;
         }
 
-        public Task<string> Handle(AddUserCommand request, CancellationToken cancellationToken)
+        public Task<UserDTO> Handle(AddUserCommand request, CancellationToken cancellationToken)
         {
-            return Task.FromResult(_registerRepository.Add(request.user));
+            var user = _mapper.Map<User>(request);
+            var add = (_registerRepository.Add(user));
+            var userDTO = _mapper.Map<UserDTO>(add);
+
+            return Task.FromResult(userDTO);
         }
     }
 }

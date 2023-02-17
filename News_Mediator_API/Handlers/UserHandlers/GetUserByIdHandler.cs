@@ -1,21 +1,27 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using News_Mediator_API.Interfaces;
 using News_Mediator_API.Models;
 using News_Mediator_API.Queries.UserQueries;
 
 namespace News_Mediator_API.Handlers.UserHandlers
 {
-    public class GetUserByIdHandler : IRequestHandler<GetUserByIDQuery, User>
+    public class GetUserByIdHandler : IRequestHandler<GetUserByIDQuery, UserDTO>
     {
-        IRegisterRepository _registerRepository;
-        public GetUserByIdHandler(IRegisterRepository registerRepository)
+        private readonly IRegisterRepository _registerRepository;
+        private readonly IMapper _mapper;
+        public GetUserByIdHandler(IRegisterRepository registerRepository, IMapper mapper)
         {
             _registerRepository = registerRepository;
+            _mapper = mapper;
         }
 
-        public Task<User> Handle(GetUserByIDQuery request, CancellationToken cancellationToken)
+        public Task<UserDTO> Handle(GetUserByIDQuery request, CancellationToken cancellationToken)
         {
-            return Task.FromResult(_registerRepository.GetById(request.id));
+            var user = _registerRepository.GetById(request.id);
+            var userDTO = _mapper.Map<UserDTO>(user);
+
+            return Task.FromResult(userDTO);
         }
     }
 }

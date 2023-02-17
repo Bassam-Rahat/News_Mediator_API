@@ -24,7 +24,7 @@ namespace News_Mediator_API.Controllers
 
         [AllowAnonymous]
         [HttpGet("Paginated")]
-        public async Task<ActionResult<PaginationDTO<News>>> Get(int page, float pageSize)
+        public async Task<ActionResult<PaginationDTO<NewsDTO>>> Get(int page, float pageSize)
         {
             var result = await _mediator.Send(new GetPaginationQuery(page, pageSize));
             return Ok(result);
@@ -33,7 +33,7 @@ namespace News_Mediator_API.Controllers
 
         [AllowAnonymous]
         [HttpGet("Filter")]
-        public async Task<ActionResult<PaginationDTO<News>>> GetFilterAndSorting([FromQuery] FilterData data)
+        public async Task<ActionResult<PaginationDTO<NewsDTO>>> GetFilterAndSorting([FromQuery] FilterData data)
         {
             var result = await _mediator.Send(new GetNewsFilteringSortingQuery(data));
             return Ok(result);
@@ -42,7 +42,7 @@ namespace News_Mediator_API.Controllers
 
         [AllowAnonymous]
         [HttpGet]
-        public async Task<ActionResult<List<News>>> GetAll()
+        public async Task<ActionResult<List<NewsDTO>>> GetAll()
         {
             var result = await _mediator.Send(new GetAllQuery());
 
@@ -56,7 +56,7 @@ namespace News_Mediator_API.Controllers
 
         [Authorize(Role.Admin, Role.User)]
         [HttpGet("{id}")]
-        public async Task<ActionResult<News>> GetById(int id)
+        public async Task<ActionResult<NewsDTO>> GetById(int id)
         {
             var result = await _mediator.Send(new GetByIdQuery(id));
 
@@ -69,15 +69,15 @@ namespace News_Mediator_API.Controllers
 
         [Authorize(Role.Admin)]
         [HttpPost]
-        public async Task<ActionResult<string>> Add(News news)
+        public async Task<ActionResult<NewsDTO>> Add(AddCommand news)
         {
-            var result = await _mediator.Send(new AddCommand(news));
+            var result = await _mediator.Send(news);
             return Ok(result);
         }
 
         [Authorize(Role.Admin)]
         [HttpPut]
-        public async Task<ActionResult<News>> Update(int id, News updateRequest)
+        public async Task<ActionResult<NewsDTO>> Update(int id, NewsDTO updateRequest)
         {
             var result = await _mediator.Send(new UpdateCommand(id, updateRequest));
 
@@ -100,6 +100,5 @@ namespace News_Mediator_API.Controllers
             }
             return Ok(result);
         }
-
     }
 }

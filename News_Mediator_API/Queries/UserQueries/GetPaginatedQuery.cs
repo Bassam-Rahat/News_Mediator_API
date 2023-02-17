@@ -4,5 +4,5 @@ using News_Mediator_API.Pagination;
 
 namespace News_Mediator_API.Queries.UserQueries
 {
-    public record class GetPaginatedQuery(int page, float pageSize) : IRequest<PaginationDTO<User>>;
+    public record class GetPaginatedQuery(int page, float pageSize) : IRequest<PaginationDTO<UserDTO>>;
 }
