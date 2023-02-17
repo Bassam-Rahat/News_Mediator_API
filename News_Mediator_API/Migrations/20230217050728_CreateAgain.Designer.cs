@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using News_Mediator_API.Models;
 
@@ -11,9 +12,11 @@ using News_Mediator_API.Models;
 namespace NewsMediatorAPI.Migrations
 {
     [DbContext(typeof(NewsApiContext))]
-    partial class NewsApiContextModelSnapshot : ModelSnapshot
+    [Migration("20230217050728_CreateAgain")]
+    partial class CreateAgain
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

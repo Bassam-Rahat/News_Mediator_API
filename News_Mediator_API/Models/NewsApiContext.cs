@@ -43,7 +43,7 @@ public partial class NewsApiContext : DbContext
 
         modelBuilder.Entity<News>(entity =>
         {
-            entity.Property(e => e.Aurthor)
+            entity.Property(e => e.Author)
                 .HasMaxLength(50)
                 .IsUnicode(false);
             entity.Property(e => e.CreationDate)

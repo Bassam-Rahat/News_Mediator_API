@@ -71,7 +71,7 @@ namespace News_Mediator_API.Repository
             }
 
             _News.Title = updateRequest.Title;
-            _News.Aurthor = updateRequest.Aurthor;
+            _News.Author = updateRequest.Author;
             _News.Content = updateRequest.Content;
 
             _context.SaveChanges();
