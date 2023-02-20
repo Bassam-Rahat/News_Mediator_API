@@ -12,8 +12,8 @@ using News_Mediator_API.Data;
 namespace NewsMediatorAPI.Migrations
 {
     [DbContext(typeof(NewsApiContext))]
-    [Migration("20230217050728_CreateAgain")]
-    partial class CreateAgain
+    [Migration("20230217113738_create2ndAgain")]
+    partial class create2ndAgain
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -34,21 +34,27 @@ namespace NewsMediatorAPI.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("CreationDate")
-                        .HasColumnType("datetime");
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("NewsId")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .ValueGeneratedOnUpdate()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("getdate()");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("NewsId");
-
                     b.HasIndex("UserId");
 
-                    b.ToTable("BookMark", (string)null);
+                    b.HasIndex("NewsId", "UserId")
+                        .IsUnique();
+
+                    b.ToTable("BookMarks");
                 });
 
             modelBuilder.Entity("News_Mediator_API.Models.News", b =>
@@ -61,9 +67,7 @@ namespace NewsMediatorAPI.Migrations
 
                     b.Property<string>("Author")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Content")
                         .IsRequired()
@@ -72,13 +76,14 @@ namespace NewsMediatorAPI.Migrations
                     b.Property<DateTime>("CreationDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime")
-                        .HasDefaultValueSql("(getdate())");
+                        .HasDefaultValueSql("GETDATE()");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime");
 
                     b.HasKey("Id");
 
@@ -122,15 +127,13 @@ namespace NewsMediatorAPI.Migrations
                         .WithMany("BookMarks")
                         .HasForeignKey("NewsId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("FK_BookMark_News");
+                        .IsRequired();
 
                     b.HasOne("News_Mediator_API.Models.User", "User")
                         .WithMany("BookMarks")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("FK_BookMark_Users");
+                        .IsRequired();
 
                     b.Navigation("News");
 

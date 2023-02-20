@@ -97,3 +97,4 @@ C:\Users\INSIGNIA PC\source\repos\News_Mediator_API\News_Mediator_API\bin\Debug\
 C:\Users\INSIGNIA PC\source\repos\News_Mediator_API\News_Mediator_API\bin\Debug\net7.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\INSIGNIA PC\source\repos\News_Mediator_API\News_Mediator_API\bin\Debug\net7.0\AutoMapper.dll
 C:\Users\INSIGNIA PC\source\repos\News_Mediator_API\News_Mediator_API\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\INSIGNIA PC\source\repos\News_Mediator_API\News_Mediator_API\bin\Debug\net7.0\EntityFrameworkCore.Triggers.dll

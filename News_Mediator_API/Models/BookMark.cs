@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using News_Mediator_API.Data;
 
 namespace News_Mediator_API.Models;
 
-public partial class BookMark
+public partial class BookMark : TrackableBaseEntity
 {
     public int Id { get; set; }
 
     public int UserId { get; set; }
 
     public int NewsId { get; set; }
-
-    public DateTime CreationDate { get; set; }
 
     public virtual News News { get; set; } = null!;
 

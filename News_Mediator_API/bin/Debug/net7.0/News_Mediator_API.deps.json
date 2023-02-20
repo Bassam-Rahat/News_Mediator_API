@@ -10,6 +10,7 @@
         "dependencies": {
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.0",
           "EntityFramework": "6.4.4",
+          "EntityFrameworkCore.Triggers": "1.2.3",
           "MediatR": "11.1.0",
           "MediatR.Extensions.Microsoft.DependencyInjection": "11.0.0",
           "Microsoft.AspNet.WebApi.Core": "5.2.9",
@@ -101,6 +102,17 @@
           "lib/netstandard2.1/EntityFramework.dll": {
             "assemblyVersion": "6.0.0.0",
             "fileVersion": "6.400.420.21404"
+          }
+        }
+      },
+      "EntityFrameworkCore.Triggers/1.2.3": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.3"
+        },
+        "runtime": {
+          "lib/netstandard2.1/EntityFrameworkCore.Triggers.dll": {
+            "assemblyVersion": "1.2.3.0",
+            "fileVersion": "1.2.3.0"
           }
         }
       },
@@ -976,6 +988,13 @@
       "sha512": "sha512-yj1+/4tci7Panu3jKDHYizxwVm0Jvm7b7m057b5h4u8NUHGCR8WIWirBTw+8EptRffwftIWPBeIRGNKD1ewEMQ==",
       "path": "entityframework/6.4.4",
       "hashPath": "entityframework.6.4.4.nupkg.sha512"
+    },
+    "EntityFrameworkCore.Triggers/1.2.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-mnO/imDMIM6tIYrdIqbOqzj8KFYdY3n/kBOSQAT4OXvhTMDbO6nAf5yHn8W8PeM3JOmyKednA7S7/6p+XG4+3A==",
+      "path": "entityframeworkcore.triggers/1.2.3",
+      "hashPath": "entityframeworkcore.triggers.1.2.3.nupkg.sha512"
     },
     "Humanizer.Core/2.14.1": {
       "type": "package",

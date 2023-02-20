@@ -1,4 +1,5 @@
-﻿using News_Mediator_API.FilteringSorting;
+﻿using News_Mediator_API.Data;
+using News_Mediator_API.FilteringSorting;
 using News_Mediator_API.Interfaces;
 using News_Mediator_API.Models;
 using News_Mediator_API.Pagination;
@@ -59,7 +60,6 @@ namespace News_Mediator_API.Repository
 
             bookmark.UserId = userId;
             bookmark.NewsId = id;
-            bookmark.CreationDate = DateTime.Now;
 
             _context.BookMarks.Add(bookmark);
             _context.SaveChanges();

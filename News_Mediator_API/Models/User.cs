@@ -1,10 +1,11 @@
-﻿using News_Mediator_API.Entities;
+﻿using News_Mediator_API.Data;
+using News_Mediator_API.Entities;
 using System;
 using System.Collections.Generic;
 
 namespace News_Mediator_API.Models;
 
-public partial class User
+public partial class User : TrackableBaseEntity
 {
     public int Id { get; set; }
 

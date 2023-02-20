@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "XOLZ4Uczykg/Gmel41k1TxjNdlmRNuYox2xI0ieYYQDOcijcON6Fc+Mgmb9pBbMIPCWU6bOzxz4lnuGwf8TwHA==",
+  "dgSpecHash": "t50IR6e6Y/3glrE0njR7qw7+2OLbx2gANUjxrSj1WU7kws6iPAIML+uTstv1EIWEQG8qr57+nudU9JAO+dY3ug==",
   "success": true,
   "projectFilePath": "C:\\Users\\INSIGNIA PC\\source\\repos\\News_Mediator_API\\News_Mediator_API\\News_Mediator_API.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,7 @@
     "C:\\Users\\INSIGNIA PC\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\INSIGNIA PC\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\INSIGNIA PC\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
+    "C:\\Users\\INSIGNIA PC\\.nuget\\packages\\entityframeworkcore.triggers\\1.2.3\\entityframeworkcore.triggers.1.2.3.nupkg.sha512",
     "C:\\Users\\INSIGNIA PC\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\INSIGNIA PC\\.nuget\\packages\\mediatr\\11.1.0\\mediatr.11.1.0.nupkg.sha512",
     "C:\\Users\\INSIGNIA PC\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",

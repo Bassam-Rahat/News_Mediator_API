@@ -7,11 +7,11 @@ using News_Mediator_API.Authorization;
 using News_Mediator_API.Handlers;
 using News_Mediator_API.Helpers;
 using News_Mediator_API.Interfaces;
-using News_Mediator_API.Models;
 using News_Mediator_API.Repository;
 using System.Reflection;
 using System.Configuration;
 using System.Text.Json.Serialization;
+using News_Mediator_API.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,7 +23,8 @@ var builder = WebApplication.CreateBuilder(args);
 
     //builder.Services.AddDbContext<NewsApiContext>(opt =>
     //opt.UseSqlServer("News_System"));
-    builder.Services.AddDbContext<NewsApiContext>();
+    builder.Services.AddDbContext<NewsApiContext>(options =>
+                options.UseSqlServer("Server=DESKTOP-NEJRS4J;Database=NewsApiCF;Encrypt=False; Trusted_Connection=True;"));
 
 
     builder.Services.AddControllersWithViews()

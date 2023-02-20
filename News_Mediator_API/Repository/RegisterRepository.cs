@@ -3,6 +3,7 @@
 using AutoMapper;
 using global::AutoMapper;
 using Microsoft.Extensions.Options;
+using News_Mediator_API.Data;
 using News_Mediator_API.FilteringSorting;
 using News_Mediator_API.Helpers;
 using News_Mediator_API.Interfaces;
