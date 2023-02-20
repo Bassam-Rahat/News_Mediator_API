@@ -14,6 +14,8 @@ namespace News_Mediator_API.AutoMapper
             CreateMap<NewsDTO, News>();
             CreateMap<PaginationDTO<News>, PaginationDTO<NewsDTO>>();
             CreateMap<AddCommand, News>();
+            CreateMap<UpdateCommand, News>()
+            .ForMember(dest => dest.Id, opt => opt.Ignore());
         }
     }
 }

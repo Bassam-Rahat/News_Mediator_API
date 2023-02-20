@@ -22,7 +22,7 @@ namespace News_Mediator_API.Handlers.NewsHandlers
         {
             //return Task.FromResult(newsRepository.Update(request.id, request.updateRequest));
 
-            var news = _mapper.Map<News>(request.updateRequest);
+            var news = _mapper.Map<News>(request);
             var updateNews = newsRepository.Update(request.id, news);
             var newsDTO = _mapper.Map<NewsDTO>(updateNews);
 

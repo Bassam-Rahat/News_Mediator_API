@@ -77,9 +77,9 @@ namespace News_Mediator_API.Controllers
 
         [Authorize(Role.Admin)]
         [HttpPut]
-        public async Task<ActionResult<NewsDTO>> Update(int id, NewsDTO updateRequest)
+        public async Task<ActionResult<NewsDTO>> Update(UpdateCommand updateRequest)
         {
-            var result = await _mediator.Send(new UpdateCommand(id, updateRequest));
+            var result = await _mediator.Send(updateRequest);
 
             if (result is null)
             {
