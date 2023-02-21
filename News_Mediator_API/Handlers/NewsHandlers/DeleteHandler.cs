@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using News_Mediator_API.Commands.NewsCommands;
-using News_Mediator_API.Interfaces;
+using News_Mediator_API.Repository.Interfaces;
 
 namespace News_Mediator_API.Handlers.NewsHandlers
 {

@@ -1,0 +1,12 @@
+C:\Users\INSIGNIA PC\source\repos\News_Mediator_API\News_Mediator_API.Domain\obj\Debug\net7.0\News_Mediator_API.Domain.csproj.AssemblyReference.cache
+C:\Users\INSIGNIA PC\source\repos\News_Mediator_API\News_Mediator_API.Domain\obj\Debug\net7.0\News_Mediator_API.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\INSIGNIA PC\source\repos\News_Mediator_API\News_Mediator_API.Domain\obj\Debug\net7.0\News_Mediator_API.Domain.AssemblyInfoInputs.cache
+C:\Users\INSIGNIA PC\source\repos\News_Mediator_API\News_Mediator_API.Domain\obj\Debug\net7.0\News_Mediator_API.Domain.AssemblyInfo.cs
+C:\Users\INSIGNIA PC\source\repos\News_Mediator_API\News_Mediator_API.Domain\obj\Debug\net7.0\News_Mediator_API.Domain.csproj.CoreCompileInputs.cache
+C:\Users\INSIGNIA PC\source\repos\News_Mediator_API\News_Mediator_API.Domain\bin\Debug\net7.0\News_Mediator_API.Domain.deps.json
+C:\Users\INSIGNIA PC\source\repos\News_Mediator_API\News_Mediator_API.Domain\bin\Debug\net7.0\News_Mediator_API.Domain.dll
+C:\Users\INSIGNIA PC\source\repos\News_Mediator_API\News_Mediator_API.Domain\bin\Debug\net7.0\News_Mediator_API.Domain.pdb
+C:\Users\INSIGNIA PC\source\repos\News_Mediator_API\News_Mediator_API.Domain\obj\Debug\net7.0\News_Mediator_API.Domain.dll
+C:\Users\INSIGNIA PC\source\repos\News_Mediator_API\News_Mediator_API.Domain\obj\Debug\net7.0\refint\News_Mediator_API.Domain.dll
+C:\Users\INSIGNIA PC\source\repos\News_Mediator_API\News_Mediator_API.Domain\obj\Debug\net7.0\News_Mediator_API.Domain.pdb
+C:\Users\INSIGNIA PC\source\repos\News_Mediator_API\News_Mediator_API.Domain\obj\Debug\net7.0\ref\News_Mediator_API.Domain.dll

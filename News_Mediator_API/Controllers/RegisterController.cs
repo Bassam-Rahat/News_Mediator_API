@@ -5,10 +5,10 @@ using Microsoft.AspNetCore.Mvc;
 using News_Mediator_API.Authorization;
 using News_Mediator_API.Commands.UserCommands;
 using News_Mediator_API.Entities;
-using News_Mediator_API.Models;
-using News_Mediator_API.Pagination;
+using News_Mediator_API.Repository.Models;
+using News_Mediator_API.Repository.Pagination;
 using News_Mediator_API.Queries.UserQueries;
-using News_Mediator_API.Users;
+using News_Mediator_API.Repository.Users;
 
 [Authorize]
 [ApiController]

@@ -28,4 +28,9 @@
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.26.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\News_Mediator_API.Domain\News_Mediator_API.Domain.csproj" />
+    <ProjectReference Include="..\News_Mediator_API.Repository\News_Mediator_API.Repository.csproj" />
+  </ItemGroup>
+
 </Project>

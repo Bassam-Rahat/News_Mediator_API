@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using MediatR;
 using News_Mediator_API.Commands.BookmarkCommands;
-using News_Mediator_API.Interfaces;
-using News_Mediator_API.Models;
+using News_Mediator_API.Repository.Interfaces;
+using News_Mediator_API.Repository.Models;
 
 namespace News_Mediator_API.Handlers.BookmarkHandlers
 {

@@ -3,8 +3,8 @@
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using News_Mediator_API.Helpers;
-using News_Mediator_API.Interfaces;
-using News_Mediator_API.Models;
+using News_Mediator_API.Repository.Interfaces;
+using News_Mediator_API.Domain.Models;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;

@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using News_Mediator_API.Models;
+using News_Mediator_API.Repository.Models;
 
 namespace News_Mediator_API.Queries.NewsQueries
 {

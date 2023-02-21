@@ -1,12 +1,11 @@
 ﻿using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using News_Mediator_API.Authorization;
 using News_Mediator_API.Commands.NewsCommands;
 using News_Mediator_API.Entities;
-using News_Mediator_API.Interfaces;
-using News_Mediator_API.Models;
-using News_Mediator_API.Pagination;
+using News_Mediator_API.Domain.Models;
+using News_Mediator_API.Repository.Models;
+using News_Mediator_API.Repository.Pagination;
 using News_Mediator_API.Queries.NewsQueries;
 
 namespace News_Mediator_API.Controllers

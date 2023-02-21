@@ -1,17 +1,14 @@
 using MediatR;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.OpenApi.Models;
 using News_Mediator_API.Authorization;
-using News_Mediator_API.Handlers;
-using News_Mediator_API.Helpers;
-using News_Mediator_API.Interfaces;
-using News_Mediator_API.Repository;
-using System.Reflection;
-using System.Configuration;
-using System.Text.Json.Serialization;
 using News_Mediator_API.Data;
+using News_Mediator_API.Handlers.NewsHandlers;
+using News_Mediator_API.Helpers;
+using News_Mediator_API.Repository.Interfaces;
+using News_Mediator_API.Repository.Repository;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -74,7 +71,8 @@ var builder = WebApplication.CreateBuilder(args);
     builder.Services.AddScoped<INewsRepository, NewsRepository>();
     builder.Services.AddScoped<IJwtUtils, JwtUtils>();
     builder.Services.AddScoped<IRegisterRepository, RegisterRepository>();
-    services.AddMediatR(typeof(RegisterRepository));
+    builder.Services.AddMediatR(typeof(RegisterRepository));
+    builder.Services.AddMediatR(typeof(GetAllHandler).Assembly);
     builder.Services.AddScoped<IBookmarkRepository, BookmarkRepository>();
     builder.Services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
     builder.Services.AddScoped(typeof(IIdentityService), typeof(IdentityService));

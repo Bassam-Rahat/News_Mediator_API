@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using News_Mediator_API.Commands.BookmarkCommands;
-using News_Mediator_API.Interfaces;
+using News_Mediator_API.Repository.Interfaces;
 
 namespace News_Mediator_API.Handlers.BookmarkHandlers
 {

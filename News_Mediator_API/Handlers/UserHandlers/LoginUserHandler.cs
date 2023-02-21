@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using News_Mediator_API.Commands.UserCommands;
-using News_Mediator_API.Interfaces;
-using News_Mediator_API.Users;
+using News_Mediator_API.Repository.Interfaces;
+using News_Mediator_API.Repository.Users;
 
 namespace News_Mediator_API.Handlers.UserHandlers
 {

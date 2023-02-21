@@ -1,8 +1,9 @@
 ﻿namespace News_Mediator_API.Authorization;
 
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
 using News_Mediator_API.Helpers;
-using News_Mediator_API.Interfaces;
+using News_Mediator_API.Repository.Interfaces;
 
 public class JwtMiddleware
 {

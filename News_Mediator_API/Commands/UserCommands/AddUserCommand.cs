@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using News_Mediator_API.Entities;
-using News_Mediator_API.Models;
+using News_Mediator_API.Repository.Models;
 
 namespace News_Mediator_API.Commands.UserCommands;
 public record AddUserCommand : IRequest<UserDTO>

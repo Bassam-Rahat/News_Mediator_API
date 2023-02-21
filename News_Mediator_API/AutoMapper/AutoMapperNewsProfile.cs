@@ -1,7 +1,8 @@
 ﻿using AutoMapper;
 using News_Mediator_API.Commands.NewsCommands;
-using News_Mediator_API.Models;
-using News_Mediator_API.Pagination;
+using News_Mediator_API.Repository.Models;
+using News_Mediator_API.Repository.Pagination;
+using News_Mediator_API.Domain.Models;
 
 namespace News_Mediator_API.AutoMapper
 {
