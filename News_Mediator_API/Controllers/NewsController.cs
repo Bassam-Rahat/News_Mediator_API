@@ -3,26 +3,25 @@ using Microsoft.AspNetCore.Mvc;
 using News_Mediator_API.Authorization;
 using News_Mediator_API.Commands.NewsCommands;
 using News_Mediator_API.Enums;
-using News_Mediator_API.Domain.Models;
+using News_Mediator_API.Queries.NewsQueries;
 using News_Mediator_API.Repository.Models;
 using News_Mediator_API.Repository.Pagination;
-using News_Mediator_API.Queries.NewsQueries;
 
 namespace News_Mediator_API.Controllers
 {
     [Authorize]
     [ApiController]
     [Route("[controller]")]
-    public class NewsController : ControllerBase
+    public class newsController : ControllerBase
     {
         private readonly IMediator _mediator;
-        public NewsController(IMediator mediator)
+        public newsController(IMediator mediator)
         {
             _mediator = mediator;
         }
 
         [AllowAnonymous]
-        [HttpGet("Paginated")]
+        [HttpGet("paginated")]
         public async Task<ActionResult<PaginationDTO<NewsDTO>>> Get(int page, float pageSize)
         {
             var result = await _mediator.Send(new GetPaginationQuery(page, pageSize));
@@ -31,7 +30,7 @@ namespace News_Mediator_API.Controllers
         }
 
         [AllowAnonymous]
-        [HttpGet("Filter")]
+        [HttpGet("filter")]
         public async Task<ActionResult<PaginationDTO<NewsDTO>>> GetFilterAndSorting([FromQuery] FilterData data)
         {
             var result = await _mediator.Send(new GetNewsFilteringSortingQuery(data));

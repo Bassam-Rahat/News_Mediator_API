@@ -1,16 +1,13 @@
 ﻿namespace News_Mediator_API.Repository.Repository;
 
 using AutoMapper;
-using Microsoft.Extensions.Options;
 using News_Mediator_API.Configuration;
+using News_Mediator_API.Domain.Models;
 using News_Mediator_API.FilteringSorting;
 using News_Mediator_API.Repository.Interfaces;
-using News_Mediator_API.Domain.Models;
-using News_Mediator_API.Domain.Models;
+using News_Mediator_API.Repository.Models;
 using News_Mediator_API.Repository.Pagination;
 using News_Mediator_API.Repository.Users;
-using System.Web.Http.Filters;
-using News_Mediator_API.Repository.Models;
 
 public class RegisterRepository : IRegisterRepository
 {

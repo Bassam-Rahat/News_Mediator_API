@@ -13,12 +13,12 @@ namespace News_Mediator_API.Controllers
 {
     [Authorize]
     [ApiController]
-    [Route("[controller]")]
-    public class BookmarkNewsController : ControllerBase
+    [Route("user/news/[controller]")]
+    public class bookmarksController : ControllerBase
     {
         private readonly IMediator _mediator;
 
-        public BookmarkNewsController(IMediator mediator)
+        public bookmarksController(IMediator mediator)
         {
             _mediator = mediator;
         }
@@ -37,7 +37,7 @@ namespace News_Mediator_API.Controllers
         }
 
         [Authorize(Role.User)]
-        [HttpGet("Paginated")]
+        [HttpGet("paginated")]
         public async Task<ActionResult<PaginationDTO<NewsDTO>>> Get(int page, float pageSize)
         {
             var result = await _mediator.Send(new GetBookmarkPaginationQuery(page, pageSize));
@@ -50,7 +50,7 @@ namespace News_Mediator_API.Controllers
         }
 
         [Authorize(Role.User)]
-        [HttpGet("Filter")]
+        [HttpGet("filter")]
         public async Task<ActionResult<PaginationDTO<NewsDTO>>> GetFilterAndSorting([FromQuery] FilterData data)
         {
             var result = await _mediator.Send(new GetBMFilteringSortingQuery(data));

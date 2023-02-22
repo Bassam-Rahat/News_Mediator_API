@@ -1,7 +1,6 @@
 ﻿using News_Mediator_API.Domain.Models;
-using News_Mediator_API.Repository.Pagination;
-using News_Mediator_API.Domain.Models;
 using News_Mediator_API.Repository.Models;
+using News_Mediator_API.Repository.Pagination;
 
 namespace News_Mediator_API.Repository.Interfaces
 {

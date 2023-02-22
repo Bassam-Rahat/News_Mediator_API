@@ -13,17 +13,17 @@ using News_Mediator_API.Repository.Users;
 [Authorize]
 [ApiController]
 [Route("[controller]")]
-public class UsersController : ControllerBase
+public class usersController : ControllerBase
 {
     private readonly IMediator _mediatR;
 
-    public UsersController(IMediator mediator)
+    public usersController(IMediator mediator)
     {
         _mediatR = mediator;
     }
 
     [AllowAnonymous]
-    [HttpPost("Register")]
+    [HttpPost("register")]
     public async Task<ActionResult<UserDTO>> Add(AddUserCommand user)
     {
         var result = await _mediatR.Send(user);
@@ -31,7 +31,7 @@ public class UsersController : ControllerBase
     }
 
     [AllowAnonymous]
-    [HttpPost("Login")]
+    [HttpPost("login")]
     public async Task<IActionResult> Authenticate(UserDataRequest model)
     {
         var response = await _mediatR.Send(new LoginUserCoommand(model));
@@ -94,7 +94,7 @@ public class UsersController : ControllerBase
     }
 
     [Authorize(Role.Admin, Role.User)]
-    [HttpGet("Paginated")]
+    [HttpGet("paginated")]
     public async Task<ActionResult<PaginationDTO<UserDTO>>> GetAll(int page, float pageSize)
     {
         var users = await _mediatR.Send(new GetPaginatedQuery(page, pageSize));
@@ -102,7 +102,7 @@ public class UsersController : ControllerBase
     }
 
     [Authorize(Role.Admin, Role.User)]
-    [HttpGet("Filter")]
+    [HttpGet("filter")]
     public async Task<ActionResult<PaginationDTO<UserDTO>>> GetFilteringandSorting([FromQuery] FilterData data)
     {
         var users = await _mediatR.Send(new GetFilteringSortingQuery(data));
