@@ -1,6 +1,6 @@
 ﻿namespace News_Mediator_API.Repository.Users;
 
-using News_Mediator_API.Entities;
+using News_Mediator_API.Enums;
 using News_Mediator_API.Domain.Models;
 
 public class UserDataResponse

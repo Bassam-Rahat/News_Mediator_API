@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using News_Mediator_API.Data;
+using News_Mediator_API.Configuration;
 
 namespace News_Mediator_API.Domain.Models;
 

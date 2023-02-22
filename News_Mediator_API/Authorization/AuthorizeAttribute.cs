@@ -3,7 +3,7 @@
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
-using News_Mediator_API.Entities;
+using News_Mediator_API.Enums;
 using News_Mediator_API.Domain.Models;
 
 [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]

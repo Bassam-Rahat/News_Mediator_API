@@ -1,4 +1,4 @@
-﻿using News_Mediator_API.Data;
+﻿using News_Mediator_API.Configuration;
 using News_Mediator_API.FilteringSorting;
 using News_Mediator_API.Repository.Interfaces;
 using News_Mediator_API.Domain.Models;
@@ -14,12 +14,10 @@ namespace News_Mediator_API.Repository.Repository
         //Sorting<News> _sorting = new Sorting<News>();
 
         private readonly NewsApiContext _context;
-        private IJwtUtils _jwtUtils;
         private readonly IIdentityService _identityService;
-        public BookmarkRepository(NewsApiContext context, IJwtUtils jwtutils, IIdentityService identityService)
+        public BookmarkRepository(NewsApiContext context, IIdentityService identityService)
         {
             _context = context;
-            _jwtUtils = jwtutils;
             _identityService = identityService;
         }
 

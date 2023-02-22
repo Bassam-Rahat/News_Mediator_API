@@ -1,0 +1,17 @@
+C:\Users\INSIGNIA PC\source\repos\News_Mediator_API\News_Mediator_API.Repository\bin\Debug\net7.0\News_Mediator_API.Infrastructure.deps.json
+C:\Users\INSIGNIA PC\source\repos\News_Mediator_API\News_Mediator_API.Repository\bin\Debug\net7.0\News_Mediator_API.Infrastructure.runtimeconfig.json
+C:\Users\INSIGNIA PC\source\repos\News_Mediator_API\News_Mediator_API.Repository\bin\Debug\net7.0\News_Mediator_API.Infrastructure.dll
+C:\Users\INSIGNIA PC\source\repos\News_Mediator_API\News_Mediator_API.Repository\bin\Debug\net7.0\News_Mediator_API.Infrastructure.pdb
+C:\Users\INSIGNIA PC\source\repos\News_Mediator_API\News_Mediator_API.Repository\bin\Debug\net7.0\News_Mediator_API.Domain.dll
+C:\Users\INSIGNIA PC\source\repos\News_Mediator_API\News_Mediator_API.Repository\bin\Debug\net7.0\News_Mediator_API.Domain.pdb
+C:\Users\INSIGNIA PC\source\repos\News_Mediator_API\News_Mediator_API.Repository\obj\Debug\net7.0\News_Mediator_API.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\INSIGNIA PC\source\repos\News_Mediator_API\News_Mediator_API.Repository\obj\Debug\net7.0\News_Mediator_API.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\INSIGNIA PC\source\repos\News_Mediator_API\News_Mediator_API.Repository\obj\Debug\net7.0\News_Mediator_API.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\INSIGNIA PC\source\repos\News_Mediator_API\News_Mediator_API.Repository\obj\Debug\net7.0\News_Mediator_API.Infrastructure.AssemblyInfo.cs
+C:\Users\INSIGNIA PC\source\repos\News_Mediator_API\News_Mediator_API.Repository\obj\Debug\net7.0\News_Mediator_API.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\INSIGNIA PC\source\repos\News_Mediator_API\News_Mediator_API.Repository\obj\Debug\net7.0\News_Mediator_API.Infrastructure.csproj.CopyComplete
+C:\Users\INSIGNIA PC\source\repos\News_Mediator_API\News_Mediator_API.Repository\obj\Debug\net7.0\News_Mediator_API.Infrastructure.dll
+C:\Users\INSIGNIA PC\source\repos\News_Mediator_API\News_Mediator_API.Repository\obj\Debug\net7.0\refint\News_Mediator_API.Infrastructure.dll
+C:\Users\INSIGNIA PC\source\repos\News_Mediator_API\News_Mediator_API.Repository\obj\Debug\net7.0\News_Mediator_API.Infrastructure.pdb
+C:\Users\INSIGNIA PC\source\repos\News_Mediator_API\News_Mediator_API.Repository\obj\Debug\net7.0\News_Mediator_API.Infrastructure.genruntimeconfig.cache
+C:\Users\INSIGNIA PC\source\repos\News_Mediator_API\News_Mediator_API.Repository\obj\Debug\net7.0\ref\News_Mediator_API.Infrastructure.dll

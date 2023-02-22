@@ -1,6 +1,6 @@
 ﻿using EntityFrameworkCore.Triggers;
 
-namespace News_Mediator_API.Data
+namespace News_Mediator_API.Configuration
 {
     public abstract class TrackableBaseEntity
     {

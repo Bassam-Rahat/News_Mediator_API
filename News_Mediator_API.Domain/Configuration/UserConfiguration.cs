@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using News_Mediator_API.Domain.Models;
 
-namespace News_Mediator_API.Data
+namespace News_Mediator_API.Configuration
 {
     public class UserConfiguration : IEntityTypeConfiguration<User>
     {

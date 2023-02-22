@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using News_Mediator_API.Entities;
+using News_Mediator_API.Enums;
 using News_Mediator_API.Repository.Models;
 
 namespace News_Mediator_API.Commands.UserCommands;

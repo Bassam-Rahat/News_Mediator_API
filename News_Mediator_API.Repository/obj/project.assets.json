@@ -4441,9 +4441,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\INSIGNIA PC\\source\\repos\\News_Mediator_API\\News_Mediator_API.Repository\\News_Mediator_API.Repository.csproj",
-      "projectName": "News_Mediator_API.Repository",
-      "projectPath": "C:\\Users\\INSIGNIA PC\\source\\repos\\News_Mediator_API\\News_Mediator_API.Repository\\News_Mediator_API.Repository.csproj",
+      "projectUniqueName": "C:\\Users\\INSIGNIA PC\\source\\repos\\News_Mediator_API\\News_Mediator_API.Repository\\News_Mediator_API.Infrastructure.csproj",
+      "projectName": "News_Mediator_API.Infrastructure",
+      "projectPath": "C:\\Users\\INSIGNIA PC\\source\\repos\\News_Mediator_API\\News_Mediator_API.Repository\\News_Mediator_API.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\INSIGNIA PC\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\INSIGNIA PC\\source\\repos\\News_Mediator_API\\News_Mediator_API.Repository\\obj\\",
       "projectStyle": "PackageReference",

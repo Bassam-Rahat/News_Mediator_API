@@ -1,5 +1,5 @@
-﻿using News_Mediator_API.Data;
-using News_Mediator_API.Entities;
+﻿using News_Mediator_API.Configuration;
+using News_Mediator_API.Enums;
 using System;
 using System.Collections.Generic;
 

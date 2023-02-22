@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vaR8W7AKo8UQ11jIvCvMiOEXtJACyPAC8whwARmKtlYrLKazVuEqSYrxdpL3slE2eSUcfDNTAzGyFWrBw6UpVw==",
+  "dgSpecHash": "zpuDjwdpw15m2jkdSaDZJ8QpmWlVTdFoCtVG6RyVUPtnOxgBMpxWoCnSsjxdi/mR8iHfnLZxCH4xBcUuIXjOwA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\INSIGNIA PC\\source\\repos\\News_Mediator_API\\News_Mediator_API.Repository\\News_Mediator_API.Repository.csproj",
+  "projectFilePath": "C:\\Users\\INSIGNIA PC\\source\\repos\\News_Mediator_API\\News_Mediator_API.Repository\\News_Mediator_API.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\INSIGNIA PC\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\INSIGNIA PC\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",

@@ -30,7 +30,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\News_Mediator_API.Domain\News_Mediator_API.Domain.csproj" />
-    <ProjectReference Include="..\News_Mediator_API.Repository\News_Mediator_API.Repository.csproj" />
+    <ProjectReference Include="..\News_Mediator_API.Repository\News_Mediator_API.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

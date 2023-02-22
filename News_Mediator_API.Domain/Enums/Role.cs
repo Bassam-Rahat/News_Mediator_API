@@ -1,4 +1,4 @@
-﻿namespace News_Mediator_API.Entities;
+﻿namespace News_Mediator_API.Enums;
 
 public enum Role
 {

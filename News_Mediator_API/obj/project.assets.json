@@ -1638,7 +1638,7 @@
           "bin/placeholder/News_Mediator_API.Domain.dll": {}
         }
       },
-      "News_Mediator_API.Repository/1.0.0": {
+      "News_Mediator_API.Infrastructure/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
@@ -1658,10 +1658,10 @@
           "News_Mediator_API.Domain": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/News_Mediator_API.Repository.dll": {}
+          "bin/placeholder/News_Mediator_API.Infrastructure.dll": {}
         },
         "runtime": {
-          "bin/placeholder/News_Mediator_API.Repository.dll": {}
+          "bin/placeholder/News_Mediator_API.Infrastructure.dll": {}
         }
       }
     }
@@ -4929,10 +4929,10 @@
       "path": "../News_Mediator_API.Domain/News_Mediator_API.Domain.csproj",
       "msbuildProject": "../News_Mediator_API.Domain/News_Mediator_API.Domain.csproj"
     },
-    "News_Mediator_API.Repository/1.0.0": {
+    "News_Mediator_API.Infrastructure/1.0.0": {
       "type": "project",
-      "path": "../News_Mediator_API.Repository/News_Mediator_API.Repository.csproj",
-      "msbuildProject": "../News_Mediator_API.Repository/News_Mediator_API.Repository.csproj"
+      "path": "../News_Mediator_API.Repository/News_Mediator_API.Infrastructure.csproj",
+      "msbuildProject": "../News_Mediator_API.Repository/News_Mediator_API.Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -4951,7 +4951,7 @@
       "Microsoft.Entityframeworkcore >= 7.0.3",
       "Microsoft.IdentityModel.Tokens >= 6.26.1",
       "News_Mediator_API.Domain >= 1.0.0",
-      "News_Mediator_API.Repository >= 1.0.0",
+      "News_Mediator_API.Infrastructure >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.5.0",
       "Swashbuckle.AspNetCore.Filters >= 7.0.6",
       "System.IdentityModel.Tokens.Jwt >= 6.26.1"
@@ -4987,8 +4987,8 @@
             "C:\\Users\\INSIGNIA PC\\source\\repos\\News_Mediator_API\\News_Mediator_API.Domain\\News_Mediator_API.Domain.csproj": {
               "projectPath": "C:\\Users\\INSIGNIA PC\\source\\repos\\News_Mediator_API\\News_Mediator_API.Domain\\News_Mediator_API.Domain.csproj"
             },
-            "C:\\Users\\INSIGNIA PC\\source\\repos\\News_Mediator_API\\News_Mediator_API.Repository\\News_Mediator_API.Repository.csproj": {
-              "projectPath": "C:\\Users\\INSIGNIA PC\\source\\repos\\News_Mediator_API\\News_Mediator_API.Repository\\News_Mediator_API.Repository.csproj"
+            "C:\\Users\\INSIGNIA PC\\source\\repos\\News_Mediator_API\\News_Mediator_API.Repository\\News_Mediator_API.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\INSIGNIA PC\\source\\repos\\News_Mediator_API\\News_Mediator_API.Repository\\News_Mediator_API.Infrastructure.csproj"
             }
           }
         }

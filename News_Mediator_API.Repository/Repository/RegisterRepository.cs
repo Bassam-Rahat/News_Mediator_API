@@ -2,7 +2,7 @@
 
 using AutoMapper;
 using Microsoft.Extensions.Options;
-using News_Mediator_API.Data;
+using News_Mediator_API.Configuration;
 using News_Mediator_API.FilteringSorting;
 using News_Mediator_API.Repository.Interfaces;
 using News_Mediator_API.Domain.Models;
@@ -10,7 +10,6 @@ using News_Mediator_API.Domain.Models;
 using News_Mediator_API.Repository.Pagination;
 using News_Mediator_API.Repository.Users;
 using System.Web.Http.Filters;
-using News_Mediator_API.Helpers;
 using News_Mediator_API.Repository.Models;
 
 public class RegisterRepository : IRegisterRepository
@@ -20,35 +19,31 @@ public class RegisterRepository : IRegisterRepository
     //Sorting<User> _sorting = new Sorting<User>();
 
     private NewsApiContext _context;
-    private IJwtUtils _jwtUtils;
-    private readonly AppSettings _appSettings;
     private readonly IMapper _mapper;
 
-    public RegisterRepository(NewsApiContext context, IJwtUtils jwtutils, IOptions<AppSettings> appSettings, IMapper mapper)
+    public RegisterRepository(NewsApiContext context, IMapper mapper)
     {
         _context = context;
-        _jwtUtils = jwtutils;
-        _appSettings = appSettings.Value;
         _mapper = mapper;
     }
 
-    public UserDataResponse Authenticate(UserDataRequest model)
+    public User Authenticate(UserDataRequest model)
     {
         var user = _context.Users.SingleOrDefault(x => x.UserName == model.UserName && x.Password == model.Password);
 
         // validate
         if (user == null)
-            throw new AppException("Username or password is incorrect");
+            return null;
 
         // authentication successful so generate jwt token
-        var jwtToken = _jwtUtils.GenerateJwtToken(user);
+        //var jwtToken = _jwtUtils.GenerateJwtToken(user);
 
         //return new UserDataResponse(user, jwtToken);
 
-        var userDataResponse = _mapper.Map<UserDataResponse>(user);
-        userDataResponse.Token = jwtToken;
+        //var userDataResponse = _mapper.Map<UserDataResponse>(user);
+        //userDataResponse.Token = jwtToken;
 
-        return userDataResponse;
+        return user;
     }
 
     public User Add(User user)

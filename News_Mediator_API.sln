@@ -5,9 +5,9 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "News_Mediator_API", "News_Mediator_API\News_Mediator_API.csproj", "{D1F41F8D-8496-4781-921D-849E92873F9C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "News_Mediator_API.Domain", "News_Mediator_API.Domain\News_Mediator_API.Domain.csproj", "{99AFB8E6-2399-45AE-8669-3DCE58587E3B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "News_Mediator_API.Domain", "News_Mediator_API.Domain\News_Mediator_API.Domain.csproj", "{99AFB8E6-2399-45AE-8669-3DCE58587E3B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "News_Mediator_API.Repository", "News_Mediator_API.Repository\News_Mediator_API.Repository.csproj", "{769BBBF3-1E58-4168-9994-8D36403C4FB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "News_Mediator_API.Infrastructure", "News_Mediator_API.Repository\News_Mediator_API.Infrastructure.csproj", "{769BBBF3-1E58-4168-9994-8D36403C4FB2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

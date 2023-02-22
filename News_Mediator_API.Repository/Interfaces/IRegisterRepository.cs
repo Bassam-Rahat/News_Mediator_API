@@ -7,7 +7,7 @@ namespace News_Mediator_API.Repository.Interfaces
 {
     public interface IRegisterRepository
     {
-        UserDataResponse Authenticate(UserDataRequest model);
+        User Authenticate(UserDataRequest model);
         User Add(User User);
         User GetById(int id);
         List<User> Get();

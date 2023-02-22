@@ -9,6 +9,12 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
+public interface IJwtUtils
+{
+    public string GenerateJwtToken(User user);
+    public int? ValidateJwtToken(string token);
+}
+
 public class JwtUtils : IJwtUtils
 {
     private readonly AppSettings _appSettings;

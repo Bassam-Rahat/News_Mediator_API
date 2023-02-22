@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using News_Mediator_API.Domain.Models;
 
-namespace News_Mediator_API.Data;
+namespace News_Mediator_API.Configuration;
 
 public class NewsApiContext : DbContextWithTriggers
 {

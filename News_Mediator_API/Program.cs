@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.OpenApi.Models;
 using News_Mediator_API.Authorization;
-using News_Mediator_API.Data;
+using News_Mediator_API.Configuration;
 using News_Mediator_API.Handlers.NewsHandlers;
 using News_Mediator_API.Helpers;
 using News_Mediator_API.Repository.Interfaces;

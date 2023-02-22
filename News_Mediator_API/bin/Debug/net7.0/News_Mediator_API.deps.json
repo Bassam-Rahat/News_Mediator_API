@@ -22,7 +22,7 @@
           "Microsoft.EntityFrameworkCore": "7.0.3",
           "Microsoft.IdentityModel.Tokens": "6.26.1",
           "News_Mediator_API.Domain": "1.0.0",
-          "News_Mediator_API.Repository": "1.0.0",
+          "News_Mediator_API.Infrastructure": "1.0.0",
           "Swashbuckle.AspNetCore": "6.5.0",
           "Swashbuckle.AspNetCore.Filters": "7.0.6",
           "System.IdentityModel.Tokens.Jwt": "6.26.1"
@@ -977,7 +977,7 @@
           "News_Mediator_API.Domain.dll": {}
         }
       },
-      "News_Mediator_API.Repository/1.0.0": {
+      "News_Mediator_API.Infrastructure/1.0.0": {
         "dependencies": {
           "AutoMapper": "12.0.1",
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.0",
@@ -995,7 +995,7 @@
           "News_Mediator_API.Domain": "1.0.0"
         },
         "runtime": {
-          "News_Mediator_API.Repository.dll": {}
+          "News_Mediator_API.Infrastructure.dll": {}
         }
       }
     }
@@ -1704,7 +1704,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "News_Mediator_API.Repository/1.0.0": {
+    "News_Mediator_API.Infrastructure/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

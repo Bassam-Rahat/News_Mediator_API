@@ -1,4 +1,4 @@
-﻿using News_Mediator_API.Data;
+﻿using News_Mediator_API.Configuration;
 using News_Mediator_API.FilteringSorting;
 using News_Mediator_API.Repository.Interfaces;
 using News_Mediator_API.Domain.Models;
